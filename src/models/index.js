@@ -1,8 +1,8 @@
 
 exports.registerModel = require("./register")
-exports.leaveManagementModel = require("./leave_Management")
-exports.teamMatesModel = require("./team_Mates")
-exports.publicHolidayModel = require("./public_Holiday")
-exports.statusManagementModel = require("./status_Management")
-exports.taskAssignModel = require("./task_Assign")
+exports.leaveManagementModel = require("./leaveManagement")
+exports.teamMatesModel = require("./teamMates")
+exports.publicHolidayModel = require("./publicHoliday")
+exports.statusManagementModel = require("./statusManagement")
+exports.taskAssignModel = require("./taskAssign")
 
