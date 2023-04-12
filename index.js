@@ -4,7 +4,7 @@ const session = require("express-session")
 const path = require("path");
 const connectDB = require("./src/confiq/connection/connection");
 connectDB()
-const router = require("./src/api/route");
+const router = require("./src/admin/route");
 const port = 3030 ; 
 
 app.use(session({
@@ -19,7 +19,7 @@ app.use(express.json())
 
 router(app)
 
-app.set("views", path.join(__dirname , "src/api/views"))
+app.set("views", path.join(__dirname , "src/admin/views"))
 app.set("view engine", "ejs");
 
 app.listen(port , () => {
