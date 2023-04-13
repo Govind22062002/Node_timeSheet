@@ -1,1 +1,2 @@
-exports.loginapi = require("./loginControllerApi")
+exports.loginCtrlApi = require("./loginControllerApi")
+exports.usersCtrlApi = require("./usersCtrlApi")
