@@ -21,6 +21,11 @@ exports.loginPost = async (req, res) => {
             const isMatch = await bcrypt.compare(password, data.password);
             console.log(isMatch ,"match");
             if (isMatch) {
+                // const token = await data.generateAuthToken();
+                // res.cookie("jwt", token, {
+                //   expires: new Date(Date.now() + 50000),
+                //   httpOnly: true,
+                // });
                 req.session.username = data
                 res.redirect("/index")
                 

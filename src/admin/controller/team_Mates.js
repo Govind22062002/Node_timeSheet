@@ -14,10 +14,10 @@ exports.teamMates_Post = async (req,res) => {
      type : req.body.type,
      email : req.body.email,
      Phone : req.body.phone ,
-     date_Of_Birth : req.body.date_Of_Birth,
+     date_Of_Birth : new Date(req.body.date_Of_Birth) ,
      status : req.body.status,
      jobType : req.body.jobType,
-     joining_Date : req.body.joining_Date
+     joining_Date : new Date(req.body.joining_Date) 
     })
     console.log(data);
     res.redirect("back")

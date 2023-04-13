@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const emailModel = require('../../models/emailModel');
 const nodemailer = require('nodemailer');
 
@@ -43,4 +44,9 @@ exports.sendMail = async(req, res) => {
         console.log(error);
         throw error;
     }
+=======
+
+exports.emailMessage = async (req,res) => {
+    res.render("email_message")
+>>>>>>> f013e5571e2e171f1db63ab9ba83658c16409992
 }
