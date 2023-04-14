@@ -11,21 +11,17 @@ exports.login = async (req, res) => {
 
 exports.loginPost = async (req, res) => {
     try {
-        console.log(req.body);
         const { email, password } = req.body;
         const data = await registerModel.findOne({ email })
-        console.log(data.password ,"data");
         if (!data) {
             res.redirect("/")
         } else {
             const isMatch = await bcrypt.compare(password, data.password);
-            console.log(isMatch ,"match");
             if (isMatch) {
                 req.session.username = data
                 res.redirect("/index")
                 
             } else {
-                console.log("dfgh");
                 res.redirect("/")
             }
         }
