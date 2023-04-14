@@ -26,7 +26,7 @@ exports.loginPostApi = async (req,res,next) => {
       token = jwt.sign(
         { userId: existingUser.id, email: existingUser.email },
         "secretkeyappearshere",
-        { expiresIn: "1h" }
+        // { expiresIn: "1h" }
       );
     }else{
       const error = Error("Wrong details please check at once");
