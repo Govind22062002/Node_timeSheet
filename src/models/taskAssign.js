@@ -20,7 +20,7 @@ const taskAssignSchema = new mongoose.Schema({
     timestamps: true,
     versionKey: false
 });
-module.exports = mongoose.model('task_Assign', taskAssignSchema);
+module.exports = mongoose.model('taskAssign', taskAssignSchema);
 
 
 

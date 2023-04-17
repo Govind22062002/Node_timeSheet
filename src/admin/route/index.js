@@ -1,6 +1,5 @@
 const {controller} = require("../controller/")
 
-
 module.exports = (app) => {
     app.use(require("./login"))
     app.use(require("./emailMessage.js"))
@@ -9,6 +8,6 @@ module.exports = (app) => {
     app.use(require("./clientAssign"))
     app.use(require("./taskAssign"))
     app.use(require("./noticeBoard"))
-    app.use(require("./leaveRequest"))
+    app.use(require("./leaveManagement"))
     app.use(require("./statusManagement"))
 }

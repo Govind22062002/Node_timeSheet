@@ -3,6 +3,7 @@ const router = express.Router()
 
 const {leaveRequestCtrl} = require("../controller");
 
-router.get("/leaveRequest", leaveRequestCtrl.leaveRequest )
+router.get("/view-leave", leaveRequestCtrl.viewLeaveRequest )
+router.get("/view-leave-datatable", leaveRequestCtrl.viewLeaveDatatable )
 
 module.exports = router ;
