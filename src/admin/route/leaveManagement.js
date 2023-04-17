@@ -3,6 +3,6 @@ const router = express.Router()
 
 const {leaveRequestCtrl} = require("../controller");
 
-router.get("/leaveRequest", leaveRequestCtrl.leaveRequest )
+router.get("/view-leave", leaveRequestCtrl.viewLeaveRequest )
 
 module.exports = router ;
