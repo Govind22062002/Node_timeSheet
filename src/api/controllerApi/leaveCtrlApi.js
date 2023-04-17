@@ -68,5 +68,54 @@ exports.leavePostCtrl = async (req,res) => {
            message : error
         })   
     }
+}
 
+exports.leaveDeleteCtrl = async (req,res) => {
+   try {
+    console.log(req.query ,"query leave");
+    const data = await leaveManagementModel.deleteOne({_id : req.query.id})
+    console.log(data);
+    res
+    .status(200)
+    .json({
+        success : true,
+        message : data
+    })
+   } catch (error) {
+    res
+    .status(400)
+    .json({
+        success : false,
+        message : error
+    })
+   }
+}
+
+exports.leaveUpdateCtrl = async (req,res) => {
+    try {
+        console.log(req.body ," body update leave")
+        const data = await leaveManagementModel.updateOne(
+            {_id : req.query.id},
+            {
+                leaveType : req.body?.leaveType,
+                from : req.body?.from,
+                to : req.body?.to,
+                reason : req.body?.reason,
+                action : req.body?.action
+            })
+            console.log(data ,"update leave data")
+            res
+            .status (200)
+            .json({
+                success : true ,
+                message : data
+            })
+    } catch (error) {
+        res
+        .status(400)
+        .json({
+            success : false,
+            message : error
+        })
+    }
 }

@@ -47,10 +47,10 @@ exports.usersPostCtrl = async (req, res) => {
                 type: req.body.type,
                 email: req.body.email,
                 Phone: req.body.phone,
-                date_Of_Birth: new Date(req.body.date_Of_Birth),
+                date_Of_Birth: req.body.date_Of_Birth,
                 status: req.body.status,
                 jobType: req.body.jobType,
-                joining_Date: new Date(req.body.joining_Date)
+                joining_Date: req.body.joining_Date
             })
             console.log(data);
             res
@@ -63,4 +63,58 @@ exports.usersPostCtrl = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+exports.usersDeleteCtrl = async (req,res) => {
+    try {
+        console.log(req.query ,"query Delete users");
+        const data = await teamMatesModel.deleteOne({_id : req.query.id})
+        console.log(data);
+        res
+        .status(200)
+        .json({
+            success : true,
+            message : data
+        })
+       } catch (error) {
+        res
+        .status(400)
+        .json({
+            success : false,
+            message : error
+        })
+       }
+}
+
+exports.usersUpdateCtrl = async (req,res) => {e
+    try {
+        console.log(req.query ,'query update users')
+        console.log(req.body ,"body update users ")
+ const data = await teamMatesModel.updateOne(
+    {_id : req.query.id},
+    {  name: req.body?.name,
+        type: req.body?.type,
+        email: req.body?.email,
+        Phone: req.body?.phone,
+        date_Of_Birth: req.body?.date_Of_Birth,
+        status: req.body?.status,
+        jobType: req.body?.jobType,
+        joining_Date: req.body?.joining_Date}
+        )
+        console.log(data ,"data update users")
+        res
+        .status(200)
+        .json({
+            success : true,
+            message : data
+        })
+    } catch (error) {
+        res
+        .status(400)
+        .json({
+            success : false,
+            message : error
+        })
+    }
+ 
 }
