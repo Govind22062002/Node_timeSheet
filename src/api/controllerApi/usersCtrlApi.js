@@ -1,6 +1,36 @@
 const { teamMatesModel } = require("../../models")
 
-exports.usersCtrl = async (req, res) => {
+exports.usersGetCtrl = async (req,res) => {
+   try {
+    const data = await teamMatesModel.find()
+    console.log(data, "data");
+    if(data && data.length !== 0){
+        res
+        .status(200)
+        .json({
+            success : true ,
+            data : data
+        })
+    }else {
+        res
+        .status(400)
+        .json({
+            success : false ,
+            message : "There is no users data available"
+        })
+    }
+   } catch (error) {
+    res
+    .status(400)
+    .json({
+        success : false ,
+        message : error
+    })
+   }
+   
+} 
+
+exports.usersPostCtrl = async (req, res) => {
     try {
         console.log(req.body, "fasdkfh");
         const user = await teamMatesModel.findOne({ email: req.body.email })
