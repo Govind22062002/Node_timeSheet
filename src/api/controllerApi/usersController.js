@@ -1,6 +1,6 @@
 const { userModel } = require("../../models")
 
-exports.usersGetCtrl = async (req, res) => {
+exports.getUsers = async (req, res) => {
     try {
         const data = await userModel.find()
         console.log(data, "data");
@@ -30,7 +30,7 @@ exports.usersGetCtrl = async (req, res) => {
 
 }
 
-exports.usersPostCtrl = async (req, res) => {
+exports.userSignup = async (req, res) => {
     try {
         const user = await userModel.findOne({ email: req.body.email })
         if (user) {
@@ -43,7 +43,7 @@ exports.usersPostCtrl = async (req, res) => {
         } else {
             const data = await userModel.create({
                 name: req.body.name,
-                type: req.body.type,
+                role: req.body.role,
                 email: req.body.email,
                 Phone: req.body.phone,
                 date_Of_Birth: new Date(req.body.date_Of_Birth),
@@ -51,7 +51,6 @@ exports.usersPostCtrl = async (req, res) => {
                 jobType: req.body.jobType,
                 joining_Date: new Date(req.body.joining_Date)
             })
-            console.log(data);
             res
                 .status(200)
                 .json({
