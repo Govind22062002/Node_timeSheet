@@ -9,6 +9,6 @@ module.exports = (app) => {
     app.use(require("./clientAssign"))
     app.use(require("./taskAssign"))
     app.use(require("./noticeBoard"))
-    app.use(require("./leaveRequest"))
+    app.use(require("./leaveManagement"))
     app.use(require("./statusManagement"))
 }
