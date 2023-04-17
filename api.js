@@ -1,19 +1,19 @@
-const express = require("express")
-const appApi = express()
+const express = require("express");
+const app = express();
+require('dotenv').config()
 const path = require("path");
-const connectDB = require("./src/datasources/connection");
-const router = require("./src/api/routeApi/indexRouteApi");
-const port = 3039 ; 
+const port = process.env.API_PORT || 8000; 
+require("./src/datasources/connection");
+const router = require("./src/api/routeApi/");
 
-appApi.use(express.static(path.join(__dirname, "./public")))
-appApi.use(express.urlencoded({extended : true}))
-appApi.use(express.json())
+app.use(express.static(path.join(__dirname, "./public")))
+app.use(express.urlencoded({extended : true}))
+app.use(express.json())
+router(app)
 
-router(appApi)
+app.set("views", path.join(__dirname , "src/admin/views"))
+app.set("view engine", "ejs");
 
-appApi.set("views", path.join(__dirname , "src/admin/views"))
-appApi.set("view engine", "ejs");
-
-appApi.listen(port , () => {
+app.listen(port , () => {
     console.log(`server run at port ${port}`);
 })
