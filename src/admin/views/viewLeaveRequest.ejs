@@ -134,11 +134,11 @@
                                                 </div>
                                             </div>
                                             <table class="datatables-basic table dataTable no-footer dtr-column"
-                                                id="DataTables_Table_0" role="grid"
+                                                id="leaveTable" role="grid"
                                                 aria-describedby="DataTables_Table_0_info" style="width: 1036px;">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="control sorting_disabled" rowspan="1" colspan="1"
+                                                        <!-- <th class="control sorting_disabled" rowspan="1" colspan="1"
                                                             style="width: 24px; display: none;" aria-label=""></th>
                                                         <th class="sorting_disabled dt-checkboxes-cell dt-checkboxes-select-all"
                                                             rowspan="1" colspan="1" style="width: 24px;" data-col="1"
@@ -148,17 +148,17 @@
                                                                     id="checkboxSelectAll"><label
                                                                     class="form-check-label"
                                                                     for="checkboxSelectAll"></label></div>
-                                                        </th>
+                                                        </th> -->
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 92px;"
                                                             aria-label="ID: activate to sort column ascending">EMPLOYEE ID
                                                         </th>
-                                                        <th class="sorting" tabindex="0"
+                                                        <!-- <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 92px;"
                                                             aria-label="Name: activate to sort column ascending">EMPLOYEE NAME
-                                                        </th>
+                                                        </th> -->
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 95px;"
@@ -180,16 +180,11 @@
                                                             style="width: 107px;"
                                                             aria-label="Reason: activate to sort column ascending">
                                                             REASON</th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            style="width: 117px;" aria-label="Actions">Actions</th>
+                                                        <!-- <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 117px;" aria-label="Actions">Actions</th> -->
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr class="odd">
-                                                        <td valign="top" colspan="7" class="dataTables_empty">No data
-                                                            available in table</td>
-                                                    </tr>
-                                                </tbody>
+                                                <tbody></tbody>
                                             </table>
                                             <div class="d-flex justify-content-between mx-0 row">
                                                 <div class="col-sm-12 col-md-6">
@@ -267,7 +262,6 @@
                                 </div>
                             </div>
                         </section>
-
                     </div>
                 </div>
             </div>
@@ -288,3 +282,28 @@
 <!-- END: Body-->
 
 </html>
+
+<script>
+
+    $(document).ready(function(){
+    
+        var dataTable = $('#leaveTable').DataTable({
+            // 'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'get',
+            'ajax' : {
+                'url' : '/view-leave-datatable'
+            },
+            
+            'columns' : [
+                { data : 'emp_id' },
+                { data : 'leave_type' },
+                { data : 'from' },
+                { data : 'to' },
+                { data : 'reason' }
+            ]
+        });
+    
+    });
+    
+    </script>

@@ -2,16 +2,9 @@ const express = require("express");
 const app = express();
 require('dotenv').config()
 const path = require("path");
-const port = process.env.PORT || 8000; 
-const session = require("express-session")
+const port = process.env.API_PORT || 8000; 
 require("./src/datasources/connection");
-const router = require("./src/admin/route");
-
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-}));
+const router = require("./src/api/routeApi/");
 
 app.use(express.static(path.join(__dirname, "./public")))
 app.use(express.urlencoded({extended : true}))

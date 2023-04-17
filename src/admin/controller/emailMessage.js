@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 const emailModel = require('../../models/emailModel');
 const nodemailer = require('nodemailer');
 
 exports.emailMessage = async (req,res) => {
-    const data = await emailModel.find();
-    res.render("emailmessage",{data})
+    const data = await emailModel.find({To:'niteshsharma.img@gmail.com'},{is_active:true});
+    res.render("emailMessage",{data})
 }
 
 exports.sendMail = async(req, res) => {
@@ -44,9 +43,26 @@ exports.sendMail = async(req, res) => {
         console.log(error);
         throw error;
     }
-=======
+}
 
-exports.emailMessage = async (req,res) => {
-    res.render("email_message")
->>>>>>> f013e5571e2e171f1db63ab9ba83658c16409992
+exports.viewSentMail = async (req, res) => {
+    try {
+        const senderMail = req.session.username.email;
+        const data =  await emailModel.find({ sender_type:'admin',is_active:true });
+        res.render('sentMail',{data});
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
+exports.deletEmail = async (req, res) => {
+    try {
+        const ids = req.body;
+        const data = await emailModel.updateMany({id:ids},{$set:{is_active: false}});
+        res.send(data);
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }

@@ -1,65 +1,21 @@
 <!DOCTYPE html>
 <html class="loading dark-layout" lang="en" data-layout="dark-layout" data-textdirection="ltr">
-<!-- BEGIN: Head-->
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Email Application - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+ <!-- BEGIN: Header-->
+ <%-include("./partials/header") %>
+ 
+ <!-- END: Header-->
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/katex.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/quill.snow.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inconsolata&amp;family=Roboto+Slab&amp;family=Slabo+27px&amp;family=Sofia&amp;family=Ubuntu+Mono&amp;display=swap">
-    <!-- END: Vendor CSS-->
 
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-quill-editor.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-email.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-    <!-- END: Custom CSS-->
-
-</head>
-<!-- END: Head-->
+ <!-- BEGIN: Main Menu-->
+ <%-include("./partials/sidebar") %>
+ <!-- END: Main Menu-->
 
 <!-- BEGIN: Body-->
 
 <body class="vertical-layout vertical-menu-modern content-left-sidebar navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="content-left-sidebar">
 
-   <!-- BEGIN: Header-->
-   <%-include("./partials/header") %>
-   <!-- END: Header-->
-
-
-   <!-- BEGIN: Main Menu-->
-   <%-include("./partials/sidebar") %>
-   <!-- END: Main Menu-->
+  
 
 
     <!-- BEGIN: Content-->
@@ -78,12 +34,12 @@
                             </div>
                             <div class="sidebar-menu-list">
                                 <div class="list-group list-group-messages">
-                                    <a href="#" class="list-group-item list-group-item-action active">
+                                    <a href="/email_message" class="list-group-item list-group-item-action active">
                                         <i data-feather="mail" class="font-medium-3 me-50"></i>
                                         <span class="align-middle">Inbox</span>
                                         <span class="badge badge-light-primary rounded-pill float-end">3</span>
                                     </a>
-                                    <a href="#" class="list-group-item list-group-item-action">
+                                    <a href="/view-sent-mail" class="list-group-item list-group-item-action">
                                         <i data-feather="send" class="font-medium-3 me-50"></i>
                                         <span class="align-middle">Sent</span>
                                     </a>
@@ -97,7 +53,7 @@
                                         <span class="align-middle">Spam</span>
                                         <span class="badge badge-light-danger rounded-pill float-end">5</span>
                                     </a> -->
-                                    <a href="#" class="list-group-item list-group-item-action">
+                                    <a href="/trashMail" class="list-group-item list-group-item-action">
                                         <i data-feather="trash" class="font-medium-3 me-50"></i>
                                         <span class="align-middle">Trash</span>
                                     </a>
@@ -179,7 +135,7 @@
                                             <span class="action-icon"><i data-feather="mail" class="font-medium-2"></i></span>
                                         </li>
                                         <li class="list-inline-item mail-delete">
-                                            <span class="action-icon"><i data-feather="trash-2" class="font-medium-2"></i></span>
+                                            <span class="action-icon" onclick="deleteEmail()"><i data-feather="trash-2" class="font-medium-2"></i></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -187,47 +143,50 @@
                             <!-- Email actions ends -->
 
                             <!-- Email list starts -->
-                           <% for(let i of data){ %>
-                                <div class="email-user-list">
-                                    <ul class="email-media-list">
-                                        <li class="d-flex user-mail mail-read">
-                                            <div class="mail-left pe-50">
-                                                <div class="avatar">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="avatar img holder" />
+                            <%if(data.length>0){%>
+                            <div class="email-user-list">
+                                <ul class="email-media-list">
+                                        <!-- <%=data%> -->
+                                        <% for(let i of data){ %>
+                                    <li class="d-flex user-mail mail-read" id="chkDel">
+                                        <div class="mail-left pe-50">
+                                            <div class="avatar">
+                                                <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="avatar img holder" />
+                                            </div>
+                                            <div id="itemForm" class="user-action">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input deleteChkBox" onChange="changeVal(<%= i.is_active%>)"  value="<%= i._id%>" id="deleteChkBox" />
+                                                    <label class="form-check-label" for="customCheck1"></label>
                                                 </div>
-                                                <div class="user-action">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="customCheck1" />
-                                                        <label class="form-check-label" for="customCheck1"></label>
-                                                    </div>
-                                                    <span class="email-favorite"><i data-feather="star"></i></span>
+                                                <span class="email-favorite"><i data-feather="star"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="mail-body">
+                                            <div class="mail-details">
+                                                <div class="mail-items">
+                                                    <h5 class="mb-25"><%= i.To%></h5>
+                                                    <span class="text-truncate">🎯 <%= i.subject%></span>
+                                                </div>
+                                                <div class="mail-meta-item">
+                                                    <span class="me-50 bullet bullet-success bullet-sm"></span>
+                                                    <span class="mail-date">4:14 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="mail-body">
-                                                <div class="mail-details">
-                                                    <div class="mail-items">
-                                                        <h5 class="mb-25"><%=i.To%></h5>
-                                                        <span class="text-truncate">🎯 <%=i.subject%></span>
-                                                    </div>
-                                                    <div class="mail-meta-item">
-                                                        <span class="me-50 bullet bullet-success bullet-sm"></span>
-                                                        <span class="mail-date">4:14 AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="mail-message">
-                                                    <p class="text-truncate mb-0">
-                                                       <%i.body%>
-                                                    </p>
-                                                </div>
+                                            <div class="mail-message">
+                                                <p class="text-truncate mb-0">
+                                                <%= i.body%>
+                                                </p>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    <div class="no-results">
-                                        <h5>No Items Found</h5>
-                                    </div>
+                                        </div>
+                                    </li>
+                                    <%}%>
+                                </ul>
+                            <%}else{%>
+                                <div class="no-results">
+                                    <h5>No Mails</h5>
                                 </div>
-                           <%}%>
-                            
+                            <%}%>
+                            </div>
                             <!-- Email list ends -->
                         </div>
                         <!--/ Email list Area -->
@@ -579,8 +538,31 @@
     <!-- END: Footer-->
 
     <%-include("./partials/scripts") %>
-  
 </body>
 <!-- END: Body-->
-
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    function changeVal(item){
+        item = !item;
+    }
+    function deleteEmail(){
+        let result = [];
+        var itemForm = document.getElementsByClassName('deleteChkBox');
+        for(let item of itemForm){
+            if(item.checked){
+                result.push(item.defaultValue);
+            }
+        }
+        $.ajax({
+            url:"/delete_email",
+            type:"POST",
+            data: JSON.stringify(result),
+			contentType: 'application/json',
+            success: function(dat) {  
+                $("#chkDel").remove();
+            } 
+        });
+        console.log('tggtg',result)
+    }
+</script>
