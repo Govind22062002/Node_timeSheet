@@ -1,8 +1,7 @@
 const express = require("express")
 const appApi = express()
 const path = require("path");
-const connectDB = require("./src/confiq/connection/connection");
-connectDB()
+const connectDB = require("./src/datasources/connection");
 const router = require("./src/api/routeApi/indexRouteApi");
 const port = 3039 ; 
 
