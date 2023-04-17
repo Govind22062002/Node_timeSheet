@@ -65,3 +65,55 @@ exports.holidayPostCtrl = async (req, res) => {
     }
 
 }
+
+exports.holidayDeleteCtrl = async (req,res) => {
+  try{
+    console.log(req.query , 'query holiday delte')
+   if(req.query.id){
+    const data = await publicHolidayModel.deleteOne({_id : req.query.id})
+    res
+    .status(200)
+    .json({
+      success : true,
+      message : data
+    })
+   }
+    
+  }catch(error){
+    res
+    .status(400)
+    .json({
+      success : false,
+      message : error
+    })
+  }    
+}
+
+exports.holidayUpdateCtrl = async (req,res) => {
+    try{
+        console.log(req.query ,"query holiday update")
+        console.log(req.body, "body holiday update")
+    const data = await publicHolidayModel.updateOne(
+        {_id: req.query.id},
+        {
+            title: req.body?.title,
+            start_Date: req.body?.start_Date,
+            end_Date: req.body?.end_Date,
+            discription: req.body?.discription
+        })
+        res
+        .status(200)
+        .json({
+            success : true,
+            message : data
+        })
+    }catch (error){
+        res
+        .status(400)
+        .json({
+            success : false,
+            message : error
+        })
+    }
+   
+}

@@ -1,10 +1,10 @@
-const {leaveManagementModel} = require("../../models")
+const { leaveManagementModel } = require("../../models")
 
-exports.leaveGetCtrl = async (req,res) => {
+exports.leaveGetCtrl = async (req, res) => {
     try {
         const data = await leaveManagementModel.find()
         console.log(data, "data");
-        if (data && data.length !== 0 ) {
+        if (data && data.length !== 0) {
             res
                 .status(200)
                 .json({
@@ -29,93 +29,93 @@ exports.leaveGetCtrl = async (req,res) => {
     }
 }
 
-exports.leavePostCtrl = async (req,res) => {
+exports.leavePostCtrl = async (req, res) => {
     try {
-        console.log(req.body , 'leave body');
-        const users = await leaveManagementModel.findOne({employee_Id : req.body.employee_Id })
+        console.log(req.body, 'leave body');
+        const users = await leaveManagementModel.findOne({ employee_Id: req.body.employee_Id })
         console.log(users, "users");
-        if(users){
+        if (users) {
             console.log("asdklfjlksdjglkad");
             console.log(users)
             res
-            .status(400)
-            .json({
-                success: false,
-                messages: "user is allready signed"
-            })
-        }else{  
+                .status(400)
+                .json({
+                    success: false,
+                    messages: "user is allready signed"
+                })
+        } else {
             const user = await leaveManagementModel.create({
-                employee_Id : req.body.employee_Id,
+                employee_Id: req.body.employee_Id,
                 leaveType: req.body.leaveType,
-                from : req.body.from,
-                to  : req.body.to,
-                reason: req.body.reason, 
+                from: req.body.from,
+                to: req.body.to,
+                reason: req.body.reason,
                 action: req.body.action,
-             })
-             console.log(user ,"data");
-             res
-             .status(200)
-             .json({
-                success : true,
-                message : user
-             })   
+            })
+            console.log(user, "data");
+            res
+                .status(200)
+                .json({
+                    success: true,
+                    message: user
+                })
         }
     } catch (error) {
         res
-        .status(400)
-        .json({
-           success : false,
-           message : error
-        })   
+            .status(400)
+            .json({
+                success: false,
+                message: error
+            })
     }
 }
 
-exports.leaveDeleteCtrl = async (req,res) => {
-   try {
-    console.log(req.query ,"query leave");
-    const data = await leaveManagementModel.deleteOne({_id : req.query.id})
-    console.log(data);
-    res
-    .status(200)
-    .json({
-        success : true,
-        message : data
-    })
-   } catch (error) {
-    res
-    .status(400)
-    .json({
-        success : false,
-        message : error
-    })
-   }
-}
-
-exports.leaveUpdateCtrl = async (req,res) => {
+exports.leaveDeleteCtrl = async (req, res) => {
     try {
-        console.log(req.body ," body update leave")
-        const data = await leaveManagementModel.updateOne(
-            {_id : req.query.id},
-            {
-                leaveType : req.body?.leaveType,
-                from : req.body?.from,
-                to : req.body?.to,
-                reason : req.body?.reason,
-                action : req.body?.action
-            })
-            console.log(data ,"update leave data")
-            res
-            .status (200)
+        console.log(req.query, "query leave");
+        const data = await leaveManagementModel.deleteOne({ _id: req.query.id })
+        console.log(data);
+        res
+            .status(200)
             .json({
-                success : true ,
-                message : data
+                success: true,
+                message: data
             })
     } catch (error) {
         res
-        .status(400)
-        .json({
-            success : false,
-            message : error
-        })
+            .status(400)
+            .json({
+                success: false,
+                message: error
+            })
+    }
+}
+
+exports.leaveUpdateCtrl = async (req, res) => {
+    try {
+        console.log(req.body, " body update leave")
+        const data = await leaveManagementModel.updateOne(
+            { _id: req.query.id },
+            {
+                leaveType: req.body?.leaveType,
+                from: req.body?.from,
+                to: req.body?.to,
+                reason: req.body?.reason,
+                action: req.body?.action
+            })
+        console.log(data, "update leave data")
+        res
+            .status(200)
+            .json({
+                success: true,
+                message: data
+            })
+    } catch (error) {
+        res
+            .status(400)
+            .json({
+                success: false,
+                message: error
+            })
     }
 }
