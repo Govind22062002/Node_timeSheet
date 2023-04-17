@@ -267,7 +267,6 @@
                                 </div>
                             </div>
                         </section>
-
                     </div>
                 </div>
             </div>
@@ -288,3 +287,27 @@
 <!-- END: Body-->
 
 </html>
+
+<script>
+
+    $(document).ready(function(){
+    
+        var dataTable = $('#DataTables_Table_0').DataTable({
+            'processing' : true,
+            'serverSide' : true,
+            'serverMethod' : 'get',
+            'ajax' : {
+                'url' : '/view-leave-datatable'
+            },
+            'aaSorting' : [],
+            'columns' : [
+                { data : 'customer_first_name' },
+                { data : 'customer_last_name' },
+                { data : 'customer_email' },
+                { data : 'customer_gender' }
+            ]
+        });
+    
+    });
+    
+    </script>
