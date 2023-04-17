@@ -1,32 +1,38 @@
 const mongoose = require('mongoose');
 
-const teamMatesSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name : {
         type: String,
     },
-    type : {
+    role:{
+        type: String,
+        enum: ['USER', 'ADMIN']
+    },
+    dept : {
         type: String,
     },
     email: {
         type: String,
     },
-    Phone : {
+    phone : {
         type : Number
     },
-    date_Of_Birth : {
+    dob : {
         type : Date
     },
-    status: {
-        type: String,
+    isActive: {
+        type: Boolean,
+        default:true
     },
     jobType: {
         type: String,
+        enum : ['TRAINEE', 'INTERN', 'JOB']
     },
-    joining_Date: {
+    joiningDate: {
         type: Date,
     }
 }, {
     timestamps: true,
     versionKey: false
 });
-module.exports = mongoose.model('team_Mates', teamMatesSchema);
+module.exports = mongoose.model('user', userSchema);

@@ -5,5 +5,5 @@ const {isAuthApi} = require("../helperApi/authenticationApi")
 const {leaveCtrlApi} = require("../controllerApi/indexControllerApi")
 
 router.get("/leave", isAuthApi, leaveCtrlApi.leaveGetCtrl)
-router.post("/leavePost",isAuthApi,leaveCtrlApi.leavePostCtrl)
+router.post("/leavePost",leaveCtrlApi.leavePostCtrl)
 module.exports = router ;
