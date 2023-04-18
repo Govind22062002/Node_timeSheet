@@ -60,12 +60,15 @@
     <!-- BEGIN: Header-->
     <%-include("./partials/header") %>
         <!-- END: Header-->
+        <%-include("./partials/alert") %>
 
 
         <!-- BEGIN: Main Menu-->
         <%-include("./partials/sidebar") %>
-            <!-- END: Main Menu-->
 
+            <!-- END: Main Menu-->
+            <div class="alert alert-info"><%= message.success %></div>
+          
             <!-- BEGIN: Content-->
             <div class="app-content content kanban-application">
                 <div class="content-overlay"></div>
@@ -82,23 +85,10 @@
                                             class="dataTables_wrapper dt-bootstrap5 no-footer">
                                             <div class="card-header border-bottom p-1">
                                                 <div class="head-label">
-                                                    <h6 class="mb-0">DataTable with Buttons</h6>
+                                                    <h6 class="mb-0">Users Module</h6>
                                                 </div>
                                                 <div class="dt-action-buttons text-end">
                                                     <div class="dt-buttons d-inline-flex"> <button
-                                                            class="dt-button buttons-collection btn btn-outline-secondary dropdown-toggle me-2"
-                                                            tabindex="0" aria-controls="DataTables_Table_0"
-                                                            type="button" aria-haspopup="true"><span><svg
-                                                                    xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                    height="24" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-share font-small-4 me-50">
-                                                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8">
-                                                                    </path>
-                                                                    <polyline points="16 6 12 2 8 6"></polyline>
-                                                                    <line x1="12" y1="2" x2="12" y2="15"></line>
-                                                                </svg>Export</span></button> <button
                                                             class="dt-button create-new btn btn-primary" tabindex="0"
                                                             aria-controls="DataTables_Table_0" type="button"
                                                             data-bs-toggle="modal"
@@ -110,7 +100,7 @@
                                                                     class="feather feather-plus me-50 font-small-4">
                                                                     <line x1="12" y1="5" x2="12" y2="19"></line>
                                                                     <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                                </svg>Add New Record</span></button> </div>
+                                                                </svg>Add New User</span></button> </div>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mx-0 row">
@@ -191,13 +181,13 @@
                                                         <td valign="top" colspan="1" >
                                                         <%=user.email %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.date_Of_Birth.toLocaleDateString(); %></td>
+                                                        <%=user.date_Of_Birth; %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.status %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.jobType %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.joining_Date.toLocaleDateString(); %></td>
+                                                        <%=user.joining_Date; %></td>
                                                     </tr>
                                                     <% }) %>
                                                 </tbody>
@@ -232,8 +222,8 @@
                             <div class="modal modal-slide-in fade" id="modals-slide-in" style="display: none;"
                                 aria-hidden="true">
                                 <div class="modal-dialog sidebar-sm">
-                                    <form class="add-new-record modal-content pt-0" action="/teamMates_Post"
-                                        method="post">
+                                    <form class="add-new-record modal-content pt-0"  action="/register-user"
+                                        method="post" >
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close">×</button>
                                         <div class="modal-header mb-1">
@@ -241,15 +231,14 @@
                                         </div>
                                         <div class="modal-body flex-grow-1">
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-fullname">Full
-                                                    Name</label>
+                                                <label class="form-label" for="basic-icon-default-fullname">Name</label>
                                                 <input type="text" name="name" class="form-control dt-full-name"
                                                     id="basic-icon-default-fullname" placeholder="John Doe"
-                                                    aria-label="John Doe" required>
+                                                    aria-label="John Doe">
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-post">type</label>
-                                                <input type="text" name="type" id="basic-icon-default-post"
+                                                <label class="form-label" for="basic-icon-default-post">Role</label>
+                                                <input type="text" name="role" id="basic-icon-default-post"
                                                     class="form-control dt-text" placeholder="Web Developer"
                                                     aria-label="Web Developer" required>
                                             </div>

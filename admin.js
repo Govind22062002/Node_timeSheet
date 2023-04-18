@@ -6,12 +6,20 @@ const port = process.env.PORT || 8000;
 const session = require("express-session")
 require("./src/datasources/connection");
 const router = require("./src/admin/route");
+const flash = require('connect-flash');
 
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
 }));
+
+app.use(flash());
+
+app.use(function(req, res, next){
+    res.locals.message = req.flash();
+    next();
+});
 
 app.use(express.static(path.join(__dirname, "./public")))
 app.use(express.urlencoded({extended : true}))
