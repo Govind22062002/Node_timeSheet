@@ -1,7 +1,7 @@
 exports.loginCtrl = require("./userController");
 exports.emailmessageCtrl = require("./emailMessage");
 exports.publicHolidayCtrl = require("./publicHoliday");
-exports.teamMatesCtrl = require("./teamMates");
+exports.teamMatesCtrl = require("./userController");
 exports.clientAssignCtrl = require("./clientAssign");
 exports.taskAssignCtrl = require("./taskAssign");
 exports.noticeBoardCtrl = require("./noticeBoard");
