@@ -1,68 +1,45 @@
-const { userModel } = require("../../models")
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+const { registerModel } = require("../../models")
 
-exports.getUsers = async (req, res) => {
+exports.userLoggin = async (req, res) => {
     try {
-        const data = await userModel.find()
-        if (data && data.length !== 0) {
-            res
-                .status(200)
-                .json({
-                    success: true,
-                    data: data
-                })
-        } else {
-            res
-                .status(400)
-                .json({
-                    success: false,
-                    message: "There is no users data available"
-                })
-        }
-    } catch (error) {
-        res
-            .status(400)
-            .json({
+        const { email, password } = req.body;
+        const chkUser = await registerModel.findOne({ email });
+
+        if (!chkUser) {
+            res.status(200).json({
                 success: false,
-                message: error
-            })
-    }
-
-}
-
-exports.userSignup = async (req, res) => {
-    try {
-        const user = await userModel.findOne({ email: req.body.email })
-        if (user) {
-            res
-                .status(400)
-                .json({
-                    success: false,
-                    messages: "Email Id is allready exist"
-                })
+                data: 'User Not Exists!'
+            });
         } else {
-            const data = await userModel.create({
-                name: req.body.name,
-                role: req.body.role,
-                email: req.body.email,
-                Phone: req.body.phone,
-                date_Of_Birth: new Date(req.body.date_Of_Birth),
-                status: req.body.status,
-                jobType: req.body.jobType,
-                joining_Date: new Date(req.body.joining_Date)
-            })
-            res
-                .status(200)
-                .json({
-                    success: true,
-                    data: data
-                })
+            let token;
+            const isMatch = await bcrypt.compare(password, chkUser.password);
+
+            if (isMatch) {
+                token = jwt.sign(
+                    { userId: existingUser.id, email: existingUser.email },
+                    "secretkeyappearshere"
+                );
+            } else {
+                res.status(200).json({
+                    success: false,
+                    data: 'Wrong Credentials!'
+                });
+            }
+
+            res.status(200).json({
+                success: true,
+                data: {
+                    userId: chkUser.id,
+                    email: chkUser.email,
+                    password: chkUser.password,
+                    token: token,
+                },
+            });
         }
     } catch (error) {
-        res
-                .status(400)
-                .json({
-                    success: false,
-                    message : error
-                })
+        console.log(error);
+        throw error;
     }
 }
