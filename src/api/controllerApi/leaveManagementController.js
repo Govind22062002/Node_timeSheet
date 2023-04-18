@@ -3,7 +3,6 @@ const {leaveManagementModel} = require("../../models")
 exports.leaveGetCtrl = async (req,res) => {
     try {
         const data = await leaveManagementModel.find()
-        console.log(data, "data");
         if (data && data.length !== 0 ) {
             res
                 .status(200)
