@@ -103,9 +103,9 @@ exports.registerUser = async (req, res) => {
                 const body = `email:-${req.body.email},password:${randomString1}`;
                 sendMail(req,subject,body);
             }
-            res.redirect("back")
+            res.redirect("back");
         }else{
-            res.redirect("back")
+            res.redirect("back");
         }
     } catch (error) {
         console.log(error);
