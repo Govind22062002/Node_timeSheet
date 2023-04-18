@@ -8,6 +8,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['USER', 'ADMIN']
     },
+    password:{
+        type:String
+    },
     dept : {
         type: String,
     },

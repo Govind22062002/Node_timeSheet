@@ -1,7 +1,7 @@
-const { teamMatesModel, taskAssignModel } = require("../../models")
+const { userModel, taskAssignModel } = require("../../models")
 
 exports.getAssignedTask = async (req, res) => {
-    const data = await teamMatesModel.find()
+    const data = await teamMatesModel.find();
     res.render("taskAssign", { data })
 }
 
