@@ -3,6 +3,7 @@ const router = express.Router();
 const { isAuth } = require("../../helpers/authentication")
 const { userContoller } = require("../controller");
 const {userVal} = require('../helpers/userVal');
+
 router.get("/" , userContoller.login);
 router.post("/loginPost", userContoller.loginPost );
 router.get("/register", userContoller.register );
