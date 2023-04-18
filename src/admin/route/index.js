@@ -1,13 +1,14 @@
 const {controller} = require("../controller/")
 
 module.exports = (app) => {
-    app.use(require("./login"))
-    app.use(require("./emailMessage.js"))
-    app.use(require("./publicHoliday"))
-    app.use(require("./teamMates"))
-    app.use(require("./clientAssign"))
-    app.use(require("./taskAssign"))
-    app.use(require("./noticeBoard"))
-    app.use(require("./leaveManagement"))
-    app.use(require("./statusManagement"))
+    app.use(require("./login"));
+    app.use(require("./emailMessage.js"));
+    app.use(require("./publicHoliday"));
+    app.use(require("./teamMates"));
+    app.use(require("./clientAssign"));
+    app.use(require("./taskAssign"));
+    app.use(require("./noticeBoard"));
+    app.use(require("./leaveManagement"));
+    app.use(require("./statusManagement"));
+    app.use(require("./roleManagement"));
 }
