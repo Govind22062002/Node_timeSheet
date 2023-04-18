@@ -3,13 +3,11 @@ const jwt = require("jsonwebtoken")
 const { registerModel } = require("../../models")
 
 exports.loginPostApi = async (req,res,next) => {
-   console.log(req.body);
    let { email, password } = req.body;
  
    let existingUser;
    try {
      existingUser = await registerModel.findOne({ email: email });
-     console.log(existingUser ,"existingUser");
    } catch {
      const error = new Error("Error! Something went wrong.");
      return next(error);
@@ -21,7 +19,6 @@ exports.loginPostApi = async (req,res,next) => {
    let token;
    try {
     const isMatch = await bcrypt.compare(password, existingUser.password);
-    console.log(isMatch ,"match");
     if(isMatch){
       token = jwt.sign(
         { userId: existingUser.id, email: existingUser.email },
@@ -33,7 +30,6 @@ exports.loginPostApi = async (req,res,next) => {
       return next(error);
     }
    } catch (err) {
-     console.log(err);
      const error = new Error("Error! Something went wrong.");
      return next(error);
    }
@@ -54,10 +50,8 @@ exports.loginPostApi = async (req,res,next) => {
 
 exports.registerPostApi = async (req,res) => {
     try {
-        console.log(req.body, "body");
         const { name, email, password } = req.body
         const user = await registerModel.findOne({ email })
-        console.log(user ,"user post");
         if (user) {
             res
             .status(400)
@@ -81,7 +75,13 @@ exports.registerPostApi = async (req,res) => {
             
         }
     } catch (error) {
-        console.log(error);
+      res
+      .status(400)
+      .json({
+        success: false,
+         message : error
+      });   
+      
     }
 
 }

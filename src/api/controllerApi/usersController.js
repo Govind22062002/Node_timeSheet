@@ -3,7 +3,6 @@ const { userModel } = require("../../models")
 exports.getUsers = async (req, res) => {
     try {
         const data = await userModel.find()
-        console.log(data, "data");
         if (data && data.length !== 0) {
             res
                 .status(200)
@@ -59,6 +58,11 @@ exports.userSignup = async (req, res) => {
                 })
         }
     } catch (error) {
-        console.log(error);
+        res
+                .status(400)
+                .json({
+                    success: false,
+                    message : error
+                })
     }
 }

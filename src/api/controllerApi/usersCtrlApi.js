@@ -3,7 +3,6 @@ const { teamMatesModel } = require("../../models")
 exports.usersGetCtrl = async (req, res) => {
     try {
         const data = await teamMatesModel.find()
-        console.log(data, "data");
         if (data && data.length !== 0) {
             res
                 .status(200)
@@ -32,7 +31,6 @@ exports.usersGetCtrl = async (req, res) => {
 
 exports.usersPostCtrl = async (req, res) => {
     try {
-        console.log(req.body, "fasdkfh");
         const user = await teamMatesModel.findOne({ email: req.body.email })
         if (user) {
             res
@@ -52,7 +50,6 @@ exports.usersPostCtrl = async (req, res) => {
                 jobType: req.body.jobType,
                 joining_Date: req.body.joining_Date
             })
-            console.log(data);
             res
                 .status(200)
                 .json({
@@ -61,15 +58,18 @@ exports.usersPostCtrl = async (req, res) => {
                 })
         }
     } catch (error) {
-        console.log(error);
+        res
+        .status(400)
+        .json({
+            success: false,
+            message : error
+        })
     }
 }
 
 exports.usersDeleteCtrl = async (req, res) => {
     try {
-        console.log(req.query, "query Delete users");
         const data = await teamMatesModel.deleteOne({ _id: req.query.id })
-        console.log(data);
         res
             .status(200)
             .json({
@@ -89,8 +89,6 @@ exports.usersDeleteCtrl = async (req, res) => {
 exports.usersUpdateCtrl = async (req, res) => {
     e
     try {
-        console.log(req.query, 'query update users')
-        console.log(req.body, "body update users ")
         const data = await teamMatesModel.updateOne(
             { _id: req.query.id },
             {
@@ -104,7 +102,6 @@ exports.usersUpdateCtrl = async (req, res) => {
                 joining_Date: req.body?.joining_Date
             }
         )
-        console.log(data, "data update users")
         res
             .status(200)
             .json({

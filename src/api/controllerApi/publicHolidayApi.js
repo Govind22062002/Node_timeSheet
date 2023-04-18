@@ -3,7 +3,6 @@ const { publicHolidayModel } = require("../../models")
 exports.holidayGetCtrl = async (req, res) => {
     try {
         const data = await publicHolidayModel.find()
-        console.log(data, "data");
         if (data && data.length !== 0) {
             res
                 .status(200)
@@ -31,7 +30,6 @@ exports.holidayGetCtrl = async (req, res) => {
 
 exports.holidayPostCtrl = async (req, res) => {
     try {
-        console.log(req.body, 'body holiday');
         const holiday = await publicHolidayModel.findOne({ title: req.body.title })
         if (holiday) {
             res
@@ -47,7 +45,6 @@ exports.holidayPostCtrl = async (req, res) => {
                 end_Date: req.body.end_Date,
                 discription: req.body.discription
             })
-            console.log(data, "data holiday")
             res
                 .status(200)
                 .json({
@@ -68,7 +65,6 @@ exports.holidayPostCtrl = async (req, res) => {
 
 exports.holidayDeleteCtrl = async (req,res) => {
   try{
-    console.log(req.query , 'query holiday delte')
    if(req.query.id){
     const data = await publicHolidayModel.deleteOne({_id : req.query.id})
     res
@@ -91,8 +87,6 @@ exports.holidayDeleteCtrl = async (req,res) => {
 
 exports.holidayUpdateCtrl = async (req,res) => {
     try{
-        console.log(req.query ,"query holiday update")
-        console.log(req.body, "body holiday update")
     const data = await publicHolidayModel.updateOne(
         {_id: req.query.id},
         {

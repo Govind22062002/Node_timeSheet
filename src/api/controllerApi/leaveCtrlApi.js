@@ -3,7 +3,6 @@ const { leaveManagementModel } = require("../../models")
 exports.leaveGetCtrl = async (req, res) => {
     try {
         const data = await leaveManagementModel.find()
-        console.log(data, "data");
         if (data && data.length !== 0) {
             res
                 .status(200)
@@ -31,12 +30,9 @@ exports.leaveGetCtrl = async (req, res) => {
 
 exports.leavePostCtrl = async (req, res) => {
     try {
-        console.log(req.body, 'leave body');
         const users = await leaveManagementModel.findOne({ employee_Id: req.body.employee_Id })
         console.log(users, "users");
         if (users) {
-            console.log("asdklfjlksdjglkad");
-            console.log(users)
             res
                 .status(400)
                 .json({
@@ -52,7 +48,6 @@ exports.leavePostCtrl = async (req, res) => {
                 reason: req.body.reason,
                 action: req.body.action,
             })
-            console.log(user, "data");
             res
                 .status(200)
                 .json({
@@ -72,9 +67,7 @@ exports.leavePostCtrl = async (req, res) => {
 
 exports.leaveDeleteCtrl = async (req, res) => {
     try {
-        console.log(req.query, "query leave");
         const data = await leaveManagementModel.deleteOne({ _id: req.query.id })
-        console.log(data);
         res
             .status(200)
             .json({
@@ -93,7 +86,6 @@ exports.leaveDeleteCtrl = async (req, res) => {
 
 exports.leaveUpdateCtrl = async (req, res) => {
     try {
-        console.log(req.body, " body update leave")
         const data = await leaveManagementModel.updateOne(
             { _id: req.query.id },
             {
@@ -103,7 +95,6 @@ exports.leaveUpdateCtrl = async (req, res) => {
                 reason: req.body?.reason,
                 action: req.body?.action
             })
-        console.log(data, "update leave data")
         res
             .status(200)
             .json({

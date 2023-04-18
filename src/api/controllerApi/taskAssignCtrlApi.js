@@ -1,10 +1,8 @@
-const { log } = require("console");
 const { taskAssignModel } = require("../../models")
 
 exports.taskAssignGetCtrl = async (req,res) => {
     try {
         const data = await taskAssignModel.find()
-        console.log(data, "data");
         if(data && data.length !== 0){
             res
             .status(200)
@@ -32,12 +30,8 @@ exports.taskAssignGetCtrl = async (req,res) => {
 
 exports.taskAssignPostCtrl = async (req,res) => {
 try {
-    console.log(req.body ,'body task Assign');
     const users = await taskAssignModel.findOne({employee_Id : req.body.employee_Id })
-    console.log(users, "users");
     if(users){
-        console.log("asdklfjlksdjglkad");
-        console.log(users)
         res
         .status(400)
         .json({
@@ -46,7 +40,6 @@ try {
         })
     }else{
       try {
-        console.log("hdkjghaskdfak");
         const data = await taskAssignModel.create({
             employee_Id : req.body.employee_Id,
             status: req.body.status,
@@ -54,7 +47,6 @@ try {
             start_Date: req.body.start_Date,
             end_Date: req.body.end_Date
         })
-        console.log(data);
                 res
                     .status(200)
                     .json({
