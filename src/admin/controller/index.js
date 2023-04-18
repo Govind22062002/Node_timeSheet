@@ -1,4 +1,4 @@
-exports.loginCtrl = require("./userController");
+exports.userContoller = require("./userController");
 exports.emailmessageCtrl = require("./emailMessage");
 exports.publicHolidayCtrl = require("./publicHoliday");
 exports.teamMatesCtrl = require("./userController");
