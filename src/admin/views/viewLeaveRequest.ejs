@@ -82,41 +82,13 @@
                                             class="dataTables_wrapper dt-bootstrap5 no-footer">
                                             <div class="card-header border-bottom p-1">
                                                 <div class="head-label">
-                                                    <h6 class="mb-0">DataTable with Buttons</h6>
-                                                </div>
-                                                <div class="dt-action-buttons text-end">
-                                                    <div class="dt-buttons d-inline-flex"> <button
-                                                            class="dt-button buttons-collection btn btn-outline-secondary dropdown-toggle me-2"
-                                                            tabindex="0" aria-controls="DataTables_Table_0"
-                                                            type="button" aria-haspopup="true"><span><svg
-                                                                    xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                    height="24" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-share font-small-4 me-50">
-                                                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8">
-                                                                    </path>
-                                                                    <polyline points="16 6 12 2 8 6"></polyline>
-                                                                    <line x1="12" y1="2" x2="12" y2="15"></line>
-                                                                </svg>Export</span></button> <button
-                                                            class="dt-button create-new btn btn-primary" tabindex="0"
-                                                            aria-controls="DataTables_Table_0" type="button"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#modals-slide-in"><span><svg
-                                                                    xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                    height="24" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-plus me-50 font-small-4">
-                                                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                                </svg>Add Leave</span></button> </div>
+                                                    <h6 class="mb-0">View Leave Management </h6>
                                                 </div>
                                             </div>
-                                           
+                                            
                                             <table class="datatables-basic table dataTable no-footer dtr-column"
-                                                id="leaveTable" role="grid"
-                                                aria-describedby="DataTables_Table_0_info" style="width: 1036px;">
+                                                id="leaveTable" role="grid" aria-describedby="DataTables_Table_0_info"
+                                                style="width: 1036px;">
                                                 <thead>
                                                     <tr role="row">
                                                         <!-- <th class="control sorting_disabled" rowspan="1" colspan="1"
@@ -133,7 +105,8 @@
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 92px;"
-                                                            aria-label="ID: activate to sort column ascending">EMPLOYEE ID
+                                                            aria-label="ID: activate to sort column ascending">EMPLOYEE
+                                                            ID
                                                         </th>
                                                         <!-- <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -143,105 +116,67 @@
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 95px;"
-                                                            aria-label="LEAVE: activate to sort column ascending">LEAVE TYPE
+                                                            aria-label="LEAVE: activate to sort column ascending">LEAVE
+                                                            TYPE
                                                         </th>
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 85px;"
-                                                            aria-label="Date_From: activate to sort column ascending">FROM
+                                                            aria-label="Date_From: activate to sort column ascending">
+                                                            FROM
                                                         </th>
                                                         <th class="sorting" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        style="width: 85px;"
-                                                        aria-label="Date_To: activate to sort column ascending">TO
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            style="width: 85px;"
+                                                            aria-label="Date_To: activate to sort column ascending">TO
                                                         </th>
-                                                       
+
                                                         <th class="sorting" tabindex="0"
                                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                             style="width: 107px;"
                                                             aria-label="Reason: activate to sort column ascending">
                                                             REASON</th>
-                                                        <!-- <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            style="width: 117px;" aria-label="Actions">Actions</th> -->
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 117px;" aria-label="Actions">Actions</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                   <% if(data){ %>
+                                                    <%for(let i=0 ; i< data.length ; i++){ %>
+                                                        <tr>
+                                                            <th>
+                                                                <%=data[i].employee_Id %>
+                                                            </th>
+                                                            <th>
+                                                                <%=data[i].leaveType %>
+                                                            </th>
+                                                            <th>
+                                                                <%=data[i].from.toLocaleDateString(); %>
+                                                            </th>
+                                                            <th>
+                                                                <%=data[i].to.toLocaleDateString(); %>
+                                                            </th>
+                                                            <th>
+                                                                <%=data[i].reason %>
+                                                            </th>
+                                                            <th>
+                                                                <div>
+                                                                    <button onclick="approved('<%=data[i]._id %>')"
+                                                                        class="btn btn-primary">Approved</button>
+                                                                    <button onclick="denied('<%=data[i]._id %>')"
+                                                                        class="btn btn-danger">Denied</button>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                        <%}}%>
+
+                                                </tbody>
                                             </table>
-                                            <div class="d-flex justify-content-between mx-0 row">
-                                                <div class="col-sm-12 col-md-6">
-                                                    <div class="dataTables_info" id="DataTables_Table_0_info"
-                                                        role="status" aria-live="polite">Showing 0 to 0 of 0 entries
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12 col-md-6">
-                                                    <div class="dataTables_paginate paging_simple_numbers"
-                                                        id="DataTables_Table_0_paginate">
-                                                        <ul class="pagination">
-                                                            <li class="paginate_button page-item previous disabled"
-                                                                id="DataTables_Table_0_previous"><a href="#"
-                                                                    aria-controls="DataTables_Table_0" data-dt-idx="0"
-                                                                    tabindex="0" class="page-link">&nbsp;</a></li>
-                                                            <li class="paginate_button page-item next disabled"
-                                                                id="DataTables_Table_0_next"><a href="#"
-                                                                    aria-controls="DataTables_Table_0" data-dt-idx="1"
-                                                                    tabindex="0" class="page-link">&nbsp;</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Modal to add new record -->
-                            <div class="modal modal-slide-in fade" id="modals-slide-in" style="display: none;"
-                                aria-hidden="true">
-                                <div class="modal-dialog sidebar-sm">
-                                    <form class="add-new-record modal-content pt-0">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close">×</button>
-                                        <div class="modal-header mb-1">
-                                            <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
-                                        </div>
-                                        <div class="modal-body flex-grow-1">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-fullname">Select 
-                                                   Leave Type </label>
-                                                   <select class="form-select">
-                                                    <option selected="">Medical Leave</option>
-                                                    <option value="1">Casual Leave</option>
-                                                    <option value="2">Maternity Leave</option>
-                                                </select>
-                                            </div>
-                                           
-                                          
-                                            <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-date">Leave From
-                                                   Date </label>
-                                                <input type="text" class="form-control dt-date flatpickr-input"
-                                                    id="basic-icon-default-date" placeholder="MM/DD/YYYY"
-                                                    aria-label="MM/DD/YYYY" readonly="readonly">
-                                            </div>
-                                            <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-date">Leave To
-                                                   Date </label>
-                                                <input type="text" class="form-control dt-date flatpickr-input"
-                                                    id="basic-icon-default-date" placeholder="MM/DD/YYYY"
-                                                    aria-label="MM/DD/YYYY" readonly="readonly">
-                                            </div>
-                                            <div class="mb-4">
-                                                <label class="form-label" for="basic-icon-default-salary">Reason</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea78d" rows="3">
-                                                </textarea>
-                                            </div>
-                                            <button type="button"
-                                                class="btn btn-primary data-submit me-1 waves-effect waves-float waves-light">Submit</button>
-                                            <button type="reset" class="btn btn-outline-secondary waves-effect"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </section>
                     </div>
                 </div>
@@ -264,27 +199,38 @@
 
 </html>
 
-<script>
 
-    $(document).ready(function(){
-    
+<script>
+   $(document).ready(function(){
         var dataTable = $('#leaveTable').DataTable({
-            // 'processing' : true,
-            'serverSide' : true,
-            'serverMethod' : 'get',
-            'ajax' : {
-                'url' : '/view-leave-datatable'
-            },
-            
-            'columns' : [
-                { data : 'emp_id' },
-                { data : 'leave_type' },
-                { data : 'from' },
-                { data : 'to' },
-                { data : 'reason' }
-            ]
-        });
-    
+    });
     });
     
-    </script>
+</script>
+<script>
+    function approved(id) {
+        console.log(id)
+        console.log("approved function")
+        $.ajax({
+            url: "/view-leave-datatable",
+            type: "GET",
+            data: { id: id, message: "approved" },
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    }
+    function denied(id) {
+        console.log(id)
+        console.log("denied function")
+        $.ajax({
+            url: "/view-leave-datatable",
+            type: "GET",
+            data: { id: id, message: "denied" },
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    }
+
+</script>

@@ -1,4 +1,3 @@
-exports.registerModel = require("./register");
 exports.leaveManagementModel = require("./leaveManagement");
 exports.userModel = require("./userModel");
 exports.publicHolidayModel = require("./publicHoliday");
