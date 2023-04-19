@@ -7,7 +7,6 @@ exports.isAuthApi = async (req, res,next) => {
     if (!token) {
         res.status(400).json({
             success: false, message: "Error! Token was not provided."});
-                       
     }
     //Decoding the token
     try {
@@ -15,14 +14,14 @@ exports.isAuthApi = async (req, res,next) => {
         const decodedToken = jwt.verify(token, "secretkeyappearshere");
         // console.log(decodedToken ,"decodeToken");
         if(decodedToken){
-            return next() 
+            return next();
         }else{
             res
             .status(400)
             .json({
                 success : false ,
                 message : "jwt token is expired"
-            })
+            });
         }
        }
     } catch (error) {
@@ -31,7 +30,7 @@ exports.isAuthApi = async (req, res,next) => {
         .json({
             success : false ,
             message : error
-        })
+        });
     }
    
     }

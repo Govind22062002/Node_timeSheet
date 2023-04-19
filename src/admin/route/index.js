@@ -1,7 +1,7 @@
-const {controller} = require("../controller/")
+const {controller} = require("../controller/");
 
 module.exports = (app) => {
-    app.use(require("./usersRoutes"))
+    app.use(require("./usersRoutes"));
     app.use(require("./emailMessage.js"));
     app.use(require("./publicHoliday"));
     app.use(require("./clientAssign"));
