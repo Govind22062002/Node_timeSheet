@@ -124,7 +124,7 @@
                                                 </div>
                                             </div>
                                             <table class="datatables-basic table dataTable no-footer dtr-column"
-                                                id="DataTables_Table_0" role="grid"
+                                                id="usersdataTables" role="grid"
                                                 aria-describedby="DataTables_Table_0_info" style="width: 1036px;">
                                                 <thead>
                                                     <tr role="row">
@@ -171,6 +171,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
                                                     <% data.forEach(user => {%>
                                                     <tr class="odd">
                                                         <td valign="top"></td>
@@ -181,13 +182,13 @@
                                                         <td valign="top" colspan="1" >
                                                         <%=user.email %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.dob.toLocaleDateString(); %></td>
+                                                       <%=user.dob ? user.dob.toLocaleDateString() : user.dob %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.status %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.jobType %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.joiningDate.toLocaleDateString(); %></td>
+                                                            <%=user.joiningDate ? user.joiningDate.toLocaleDateString(): user.joiningDate %></td>
                                                     </tr>
                                                     <% }) %>
                                                 </tbody>
@@ -313,6 +314,12 @@
                 <!-- BEGIN: Vendor JS-->
                 <%-include("./partials/scripts") %>
 
+                <script>
+                       $(document).ready(function(){
+                          var dataTable = $('#usersdataTables').DataTable({
+                                });
+                            });
+                </script>
 </body>
 <!-- END: Body-->
 

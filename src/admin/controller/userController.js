@@ -3,11 +3,16 @@ const { userModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
+   try {
     if (req.session.username) {
         res.redirect("/index");
     } else {
         res.render("login");
     }
+   } catch (error) {
+    throw error;
+   }
+    
 }
 
 exports.loginPost = async (req, res) => {
@@ -32,11 +37,16 @@ exports.loginPost = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
-    if (req.session.username) {
-        res.redirect("/index");
-    } else {
-        res.render("register");
+    try {
+        if (req.session.username) {
+            res.redirect("/index");
+        } else {
+            res.render("register");
+        }    
+    } catch (error) {
+        throw error;
     }
+    
 }
 
 exports.registerPost = async (req, res) => {
@@ -56,7 +66,7 @@ exports.registerPost = async (req, res) => {
         }
     } catch (error) {
         console.log(error);
-    }
+    };
 
 }
 
@@ -71,10 +81,14 @@ exports.index = (req, res) => {
 }
 
 exports.viewUsers = async (req, res) => {
-    const user = req.session.username;
-    const data = await userModel.find();
-    res.render("viewUsers", { data,user});
-}
+    try {
+        const user = req.session.username;
+        const data = await userModel.find();
+        res.render("viewUsers", {user, data });
+    } catch (error) {
+        throw error;  
+    }
+   }
 
 exports.registerUser = async (req, res) => {
     try {

@@ -4,6 +4,9 @@ const taskAssignSchema = new mongoose.Schema({
     employee_Id : {
         type: mongoose.Types.ObjectId,
     },
+    task : {
+        type : String
+    },
     status : {
         type : String
      },

@@ -42,7 +42,7 @@ exports.sendMail = async (req, res) => {
         console.log(error);
         throw error;
     }
-}
+};
 
 exports.viewSentMail = async (req, res) => {
     try {
@@ -53,7 +53,7 @@ exports.viewSentMail = async (req, res) => {
         console.log(error);
         throw error;
     }
-}
+};
 
 exports.deletEmail = async (req, res) => {
     try {
@@ -64,4 +64,4 @@ exports.deletEmail = async (req, res) => {
         console.log(error);
         throw error;
     }
-}
+};
