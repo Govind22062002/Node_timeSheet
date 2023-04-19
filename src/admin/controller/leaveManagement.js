@@ -21,5 +21,5 @@ exports.viewLeaveDatatable = async (req, res) => {
         }
     } catch (error) {
         throw error
-    }
-}
+    };
+};

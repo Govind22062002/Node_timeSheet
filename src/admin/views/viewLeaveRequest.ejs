@@ -161,15 +161,14 @@
                                                             </th>
                                                             <th>
                                                                 <div>
-                                                                    <button onclick="approved('<%=data[i]._id %>')"
+                                                                    <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
                                                                         class="btn btn-primary">Approved</button>
                                                                     <button onclick="denied('<%=data[i]._id %>')"
-                                                                        class="btn btn-danger">Denied</button>
+                                                                        class="btn btn-danger <%=data[i]._id %>">Denied</button>
                                                                 </div>
                                                             </th>
                                                         </tr>
                                                         <%}}%>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -219,6 +218,8 @@
                 console.log(result);
             }
         })
+       $(`.${id}`).hide()
+       $(`#${id}`).
     }
     function denied(id) {
         console.log(id)

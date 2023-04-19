@@ -56,7 +56,7 @@ exports.registerPost = async (req, res) => {
         }
     } catch (error) {
         console.log(error);
-    }
+    };
 
 }
 
