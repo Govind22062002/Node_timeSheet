@@ -49,22 +49,22 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>S No</th>
+                                                    <th>S.No</th>
                                                     <th>Role Name</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% for(let i=0; i<data.length; i++){%>
+                                                <% for(let i=0; i< data.length; i++){%>
                                                 <tr>
-                                                    <td><%=i%></td>
+                                                    <td><%=i+1 %></td>
                                                     <td><%=data[i].role_name%></td>
                                                     <td>
-                                                        <button type="button"
+                                                        <a type="button"  href="/roleUpdate/<%=data[i]._id%>"
                                                                 class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
                                                                 <i class="fa fa-pencil"></i>
-                                                        </button>   
-                                                        <a type="button" href="/roleDelete/<%=data[i]._id%>?_METHOD=DELETE"
+                                                    </a>   
+                                                        <a type="button" href="/roleDelete/<%=data[i]._id%>"
                                                             class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
@@ -131,16 +131,6 @@
                                     Please choose a username.
                                     </div>
                             </div>
-                            <div class="col-md-4">
-                                <label for="validationCustomUsername" class="form-label">Username</label>
-                                <div class="input-group has-validation">
-                                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                  <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                                  <div class="invalid-feedback">
-                                    Please choose a username.
-                                  </div>
-                                </div>
-                              </div>
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="submit" class="btn btn-primary data-submit me-1 waves-effect waves-float waves-light">Submit</button>

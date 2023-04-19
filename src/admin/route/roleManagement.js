@@ -6,7 +6,7 @@ const { isAuth } = require("../../helpers/authentication");
 
 router.get("/getRoleList", isAuth, rolesCtrl.getRoleList);
 router.post("/roleCreate", isAuth, rolesCtrl.roleCreate);
-router.delete("/roleDelete/:id", isAuth, rolesCtrl.roleDelete);
-router.put("/roleUpdate/:id", isAuth, rolesCtrl.roleUpdate);
+router.get("/roleDelete/:id", isAuth, rolesCtrl.roleDelete);
+router.get("/roleUpdate/:id", isAuth, rolesCtrl.roleUpdate);
 
 module.exports = router;
