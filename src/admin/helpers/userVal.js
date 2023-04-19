@@ -1,5 +1,4 @@
 const Joi = require("joi");
-const flash = require('connect-flash');
 
 exports.userVal = (req, res, next) => {
     const schema = Joi.object().keys({
@@ -12,10 +11,11 @@ exports.userVal = (req, res, next) => {
         dob: Joi.date().required(),
         jobType: Joi.string().valid('TRAINEE', 'INTERN', 'JOB').required(),
         joiningDate: Joi.date().required(),
-        
+
     }).unknown(true)
 
     const { error } = schema.validate(req.body, { abortEarly: false });
+
     if (error) {
         res.locals.message = req.flash();
         const { details } = error;

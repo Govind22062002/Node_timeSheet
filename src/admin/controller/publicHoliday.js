@@ -1,3 +1,3 @@
-exports.publicHoliday = async (req,res) => {
-    res.render("Public_Holiday")
+exports.publicHoliday = async (req, res) => {
+    res.render("Public_Holiday");
 }
