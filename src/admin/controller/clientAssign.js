@@ -1,3 +1,3 @@
-exports.clientAssign = async (req,res) => {
-    res.render("client_Assign")
+exports.clientAssign = async (req, res) => {
+    res.render("client_Assign");
 }

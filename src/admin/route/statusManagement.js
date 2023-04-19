@@ -1,8 +1,8 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const {statusManagementCtrl} = require("../controller");
+const { statusManagementCtrl } = require("../controller");
 
-router.get("/statusManagment", statusManagementCtrl.statusManagement )
+router.get("/statusManagment", statusManagementCtrl.statusManagement);
 
-module.exports = router ;
+module.exports = router;
