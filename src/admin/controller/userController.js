@@ -82,8 +82,9 @@ exports.index = (req, res) => {
 
 exports.viewUsers = async (req, res) => {
     try {
+        const user = req.session.username;
         const data = await userModel.find();
-        res.render("viewUsers", { data });
+        res.render("viewUsers", {user, data });
     } catch (error) {
         throw error;  
     }

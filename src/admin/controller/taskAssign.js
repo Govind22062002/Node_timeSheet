@@ -2,6 +2,7 @@ const { userModel, taskAssignModel } = require("../../models");
 
 exports.getAssignedTask = async (req, res) => {
     try {
+        const user = req.session.username;
         const data = await taskAssignModel.aggregate([
             {
               '$lookup': {
@@ -38,7 +39,7 @@ exports.getAssignedTask = async (req, res) => {
             }
           ]);
         const users = await userModel.find();
-        res.render("taskAssign", { users, data });    
+        res.render("taskAssign", {user, users, data });    
     } catch (error) {
         throw error;
     }
