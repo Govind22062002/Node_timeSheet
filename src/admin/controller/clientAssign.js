@@ -1,3 +1,4 @@
 exports.clientAssign = async (req, res) => {
-    res.render("client_Assign");
+    const user = req.session.username;
+    res.render("client_Assign",{user});
 }

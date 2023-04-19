@@ -1,3 +1,4 @@
 exports.noticeBoard = async (req, res) => {
-    res.render("noticeBoard");
+    const user = req.session.username;
+    res.render("noticeBoard",{user});
 }

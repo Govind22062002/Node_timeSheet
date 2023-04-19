@@ -1,3 +1,4 @@
 exports.statusManagement = async (req, res) => {
-    res.render("status_Management");
+    const user = req.session.username;
+    res.render("status_Management",{user});
 }

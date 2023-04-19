@@ -1,3 +1,4 @@
 exports.publicHoliday = async (req, res) => {
-    res.render("Public_Holiday");
+    const user = req.session.username;
+    res.render("Public_Holiday",{user});
 }

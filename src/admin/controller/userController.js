@@ -63,11 +63,8 @@ exports.registerPost = async (req, res) => {
 exports.index = (req, res) => {
     try {
         const user = req.session.username;
-        if (user) {
-            res.render("indexDashbord",{user});
-        } else {
-            res.redirect("/");
-        }
+        if (user)res.render("indexDashbord",{user});
+        else res.redirect("/");
     } catch (error) {
         throw error;
     }
