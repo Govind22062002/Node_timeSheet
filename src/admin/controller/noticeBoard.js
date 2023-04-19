@@ -1,3 +1,3 @@
-exports.noticeBoard = async (req,res) => {
-    res.render("noticeBoard")
+exports.noticeBoard = async (req, res) => {
+    res.render("noticeBoard");
 }
