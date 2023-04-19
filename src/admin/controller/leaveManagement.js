@@ -17,7 +17,8 @@ exports.viewLeaveDatatable = async (req, res) => {
             const data = await leaveModel.updateOne(
                 { _id: req.query.id },
                 { action: req.query.message },
-                { upsert: true });
+                { upsert: true }
+            );
             res.send(data);
         }
     } catch (error) {

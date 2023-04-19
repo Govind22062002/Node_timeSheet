@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { userModel } = require("../../models");
+const { userModel, leaveManagementModel, statusManagementModel, emailModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
@@ -14,6 +14,7 @@ exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
         const data = await userModel.findOne({ email });
+        
         if (!data) {
             res.redirect("/");
         } else {
@@ -60,10 +61,14 @@ exports.registerPost = async (req, res) => {
 
 }
 
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
     try {
         const user = req.session.username;
-        if (user)res.render("indexDashbord",{user});
+        const userCount = await userModel.find().count();
+        const leaveCount = await leaveManagementModel.find({action:'approved'}).count();
+        const projectCount = await statusManagementModel.find().count();
+        const emailCount = await emailModel.find().count();
+        if (user)res.render("indexDashbord",{user, userCount, leaveCount, projectCount, emailCount});
         else res.redirect("/");
     } catch (error) {
         throw error;
