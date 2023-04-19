@@ -4,3 +4,4 @@ exports.publicHolidayModel = require("./publicHoliday");
 exports.statusManagementModel = require("./statusManagement");
 exports.taskAssignModel = require("./taskAssign");
 exports.roleModel = require("./role");
+exports.noticeModel = require("./noticeBoard");
