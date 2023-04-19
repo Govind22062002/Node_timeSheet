@@ -88,12 +88,13 @@ exports.registerUser = async (req, res) => {
                 name: req.body.name,
                 type: req.body.type,
                 email: req.body.email,
-                Phone: req.body.phone,
-                date_Of_Birth: new Date(req.body.date_Of_Birth),
+                phone: req.body.phone,
+                dob: new Date(req.body.dob),
                 status: req.body.status,
+                dept: req.body.dept,
                 password: hashed,
                 jobType: req.body.jobType,
-                joining_Date: new Date(req.body.joining_Date)
+                joiningDate: new Date(req.body.joiningDate)
             });
             if (data) {
                 const subject = `Your Loggin Credentials are:-`;

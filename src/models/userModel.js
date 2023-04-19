@@ -17,6 +17,9 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
     },
+    status: {
+        type: String,
+    },
     phone : {
         type : Number
     },

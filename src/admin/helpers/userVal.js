@@ -4,7 +4,7 @@ exports.userVal = (req, res, next) => {
     const schema = Joi.object().keys({
         name: Joi.string().min(3).max(40).required(),
         role: Joi.string().required(),
-        password: Joi.string().required(),
+        // password: Joi.string().required(),
         dept: Joi.string().required(),
         email: Joi.string().required(),
         phone: Joi.number().required(),
