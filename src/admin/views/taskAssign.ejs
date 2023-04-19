@@ -30,18 +30,6 @@
                                 </div>
                                 <div class="dt-action-buttons text-end">
                                     <div class="dt-buttons d-inline-flex"> <button
-                                            class="dt-button buttons-collection btn btn-outline-secondary dropdown-toggle me-2"
-                                            tabindex="0" aria-controls="DataTables_Table_0" type="button"
-                                            aria-haspopup="true"><span><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                    class="feather feather-share font-small-4 me-50">
-                                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8">
-                                                    </path>
-                                                    <polyline points="16 6 12 2 8 6"></polyline>
-                                                    <line x1="12" y1="2" x2="12" y2="15"></line>
-                                                </svg>Export</span></button> <button
                                             class="dt-button create-new btn btn-primary" tabindex="0"
                                             aria-controls="DataTables_Table_0" type="button"
                                             data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span><svg
@@ -55,334 +43,32 @@
                                                 </svg>Add Task</span></button> </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Using the most basic table Leanne Grahamup, here’s how
-                                    <code>.table</code>-based tables look in Bootstrap. You
-                                    can use any example of below table for your table and it can be use with any
-                                    type of bootstrap tables.
-                                </p>
-                            </div>
+                         
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Project</th>
-                                            <th>Client</th>
-                                            <th>Users</th>
+                                            <th>Task</th>
+                                            <th>Employee_Id</th>
+                                            <th>Work_Hour</th>
                                             <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>Start_Date</th>
+                                            <th>End_Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="../../../app-assets/images/icons/angular.svg"
-                                                    class="me-75" height="20" width="20" alt="Angular">
-                                                <span class="fw-bold">Angular Project</span>
-                                            </td>
-                                            <td>Peter Charls</td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Lilian Nenez">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><span
-                                                    class="badge rounded-pill badge-light-primary me-1">Active</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button"
-                                                        class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
-                                                        data-bs-toggle="dropdown">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                            height="14" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-edit-2 me-50">
-                                                                <path
-                                                                    d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-trash me-50">
-                                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                                <path
-                                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="../../../app-assets/images/icons/react.svg"
-                                                    class="me-75" height="20" width="20" alt="React">
-                                                <span class="fw-bold">React Project</span>
-                                            </td>
-                                            <td>Ronald Frest</td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Lilian Nenez">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><span
-                                                    class="badge rounded-pill badge-light-success me-1">Completed</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button"
-                                                        class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
-                                                        data-bs-toggle="dropdown">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                            height="14" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-edit-2 me-50">
-                                                                <path
-                                                                    d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-trash me-50">
-                                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                                <path
-                                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="../../../app-assets/images/icons/vuejs.svg"
-                                                    class="me-75" height="20" width="20" alt="Vuejs">
-                                                <span class="fw-bold">Vuejs Project</span>
-                                            </td>
-                                            <td>Jack Obes</td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Lilian Nenez">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><span
-                                                    class="badge rounded-pill badge-light-info me-1">Scheduled</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button"
-                                                        class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
-                                                        data-bs-toggle="dropdown">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                            height="14" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-edit-2 me-50">
-                                                                <path
-                                                                    d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-trash me-50">
-                                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                                <path
-                                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="../../../app-assets/images/icons/bootstrap.svg"
-                                                    class="me-75" height="20" width="20" alt="Bootstrap">
-                                                <span class="fw-bold">Bootstrap Project</span>
-                                            </td>
-                                            <td>Jerry Milton</td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Lilian Nenez">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                        data-bs-placement="top" class="avatar pull-up my-0"
-                                                        title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg"
-                                                            alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><span
-                                                    class="badge rounded-pill badge-light-warning me-1">Pending</span>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button"
-                                                        class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light"
-                                                        data-bs-toggle="dropdown">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                            height="14" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-edit-2 me-50">
-                                                                <path
-                                                                    d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                                height="14" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-trash me-50">
-                                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                                <path
-                                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                                </path>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <% if(data){ %>
+                                            <% data.forEach(user => {%>
+                                            <tr>
+                                                <td><%=user.task %></td>
+                                                <td><%=user.employee_Name %></td>
+                                                <td><%=user.Work_Hour %></td>
+                                                <td><%=user.status %></td>
+                                                <td><%=user.start_Date ? user.start_Date.toLocaleDateString() : user.start_Date %></td>
+                                                <td><%=user.end_Date ? user.end_Date.toLocaleDateString() : user.end_Date %></td>
+                                            </tr>
+                                            <% })} %>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -398,7 +84,7 @@
     <!-- Modal to add new record -->
     <div class="modal modal-slide-in fade" id="modals-slide-in" style="display: none;" aria-hidden="true">
         <div class="modal-dialog sidebar-sm">
-            <form class="add-new-record modal-content pt-0" action="/taskAssign_Post" method="post">
+            <form id="eventForm" class="add-new-record modal-content pt-0" action="/taskAssignPost" method="post">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                 <div class="modal-header mb-1">
                     <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
@@ -409,12 +95,19 @@
                             Name</label>
                         <select name="employee_Id" class="form-select" required>
                             <option value="">select Client</option>
-                            <% data.forEach(user=> {%>
+                           <% if(users){%>
+                            <% users.forEach(user=> {%>
                                 <option value="<%=user._id%>">
                                     <%=user.name %>
                                 </option>
-                                <% }) %>
+                                <% })} %>
                         </select>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">Task</label>
+                        <input type="text" name="task" class="form-control dt-full-text"
+                            id="basic-icon-default-text" placeholder="Please Enter Task"
+                            aria-label="Module Name" required>
                     </div>
                     <div class="mb-1">
                         <label class="form-label" for="basic-icon-default-fullname">Status</label>
@@ -425,19 +118,19 @@
                     <div class="mb-1">
                         <label class="form-label" for="basic-icon-default-date">
                             Start Date </label>
-                        <input type="date" name="start_Date" step="3600" class="form-control" id="time"
-                            placeholder="" aria-label="" required>
+                        <input type="text" name="start_Date" step="3600" class="form-control" id="start"
+                            placeholder="" aria-label="" >
                     </div>
                     <div class="mb-1">
                         <label class="form-label" for="basic-icon-default-date">
                             End Date </label>
-                        <input type="date" name="end_Date" class="form-control" id="time" placeholder=""
-                            aria-label="" required>
+                        <input type="text" name="end_Date" class="form-control" id="end" placeholder=""
+                            aria-label="" >
                     </div>
                     <div class="mb-1">
                         <label class="form-label" for="basic-icon-default-date">
                             Work Hour </label>
-                        <input type="time" step="3600" name="Work_Hour" class="form-control" id="time"
+                        <input type="time"  name="Work_Hour" class="form-control" id="time"
                             placeholder="" aria-label="" required>
                     </div>
                     <button type="submit"
@@ -457,6 +150,20 @@
 
     <!-- BEGIN: Vendor JS-->
     <%-include("./partials/scripts") %>
+  
+    <script>
+      $('#start').datepicker({
+    onSelect: function(dateText, inst){
+        $('#end').datepicker('option', 'minDate', new Date(dateText));
+    },
+});
+
+$('#end').datepicker({
+    onSelect: function(dateText, inst){
+        $('#start').datepicker('option', 'maxDate', new Date(dateText));
+    }
+});
+        </script>
 
 </body>
 <!-- END: Body-->

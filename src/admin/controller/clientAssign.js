@@ -1,3 +1,8 @@
+
 exports.clientAssign = async (req, res) => {
-    res.render("client_Assign");
+    try {
+        res.render("client_Assign");
+    } catch (error) {
+        throw error;
+    }
 }
