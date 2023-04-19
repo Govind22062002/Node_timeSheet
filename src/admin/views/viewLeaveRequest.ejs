@@ -161,10 +161,19 @@
                                                             </th>
                                                             <th>
                                                                 <div>
+                                                                  <% if(data[i].action == "approved" ){%>
                                                                     <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
-                                                                        class="btn btn-primary">Approved</button>
-                                                                    <button onclick="denied('<%=data[i]._id %>')"
-                                                                        class="btn btn-danger <%=data[i]._id %>">Denied</button>
+                                                                        class="btn btn-primary" disabled>Approved</button>
+                                                                    <% }else if(data[i].action == "denied"){ %>
+                                                                        <button onclick="denied('<%=data[i]._id %>')"
+                                                                            class="btn btn-danger <%=data[i]._id %>" disabled>Denied</button>
+                                                                        <% }else{ %>
+                                                                            <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
+                                                                                class="btn btn-primary">Approved</button>
+                                                                            <button onclick="denied('<%=data[i]._id %>')"
+                                                                                class="btn btn-danger <%=data[i]._id %>">Denied</button>
+                                                                            <%}%>
+                                                                   
                                                                 </div>
                                                             </th>
                                                         </tr>
@@ -208,8 +217,6 @@
 </script>
 <script>
     function approved(id) {
-        console.log(id)
-        console.log("approved function")
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
@@ -219,11 +226,9 @@
             }
         })
        $(`.${id}`).hide()
-       $(`#${id}`).
+       $(`#${id}`).attr("disabled", true)
     }
     function denied(id) {
-        console.log(id)
-        console.log("denied function")
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
@@ -232,6 +237,8 @@
                 console.log(result);
             }
         })
+        $(`#${id}`).hide()
+       $(`.${id}`).attr("disabled", true)
     }
 
 </script>

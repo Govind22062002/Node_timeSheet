@@ -1,4 +1,3 @@
-exports.loginCtrlApi = require("./loginControllerApi")
 exports.usersCtrlApi = require("./usersCtrlApi")
 exports.publicHolidayCtrlApi = require("./publicHolidayApi")
 exports.taskAssignCtrlApi = require("./taskAssignCtrlApi")
