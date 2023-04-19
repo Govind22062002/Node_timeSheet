@@ -13,7 +13,7 @@ exports.login = async (req, res) => {
 exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const data = await userModel.findOne({ email })
+        const data = await userModel.findOne({ email });
         if (!data) {
             res.redirect("/");
         } else {
@@ -63,19 +63,17 @@ exports.registerPost = async (req, res) => {
 exports.index = (req, res) => {
     try {
         const user = req.session.username;
-        if (user) {
-            res.render("indexDashbord");
-        } else {
-            res.redirect("/");
-        }
+        if (user)res.render("indexDashbord",{user});
+        else res.redirect("/");
     } catch (error) {
         throw error;
     }
 }
 
 exports.viewUsers = async (req, res) => {
+    const user = req.session.username;
     const data = await userModel.find();
-    res.render("viewUsers", { data });
+    res.render("viewUsers", { data,user});
 }
 
 exports.registerUser = async (req, res) => {
@@ -88,12 +86,13 @@ exports.registerUser = async (req, res) => {
                 name: req.body.name,
                 type: req.body.type,
                 email: req.body.email,
-                Phone: req.body.phone,
-                date_Of_Birth: new Date(req.body.date_Of_Birth),
+                phone: req.body.phone,
+                dob: new Date(req.body.dob),
                 status: req.body.status,
+                dept: req.body.dept,
                 password: hashed,
                 jobType: req.body.jobType,
-                joining_Date: new Date(req.body.joining_Date)
+                joiningDate: new Date(req.body.joiningDate)
             });
             if (data) {
                 const subject = `Your Loggin Credentials are:-`;
