@@ -3,11 +3,11 @@ const leaveModel = require("../../models/leaveManagement");
 exports.viewLeaveRequest = async (req, res) => {
     try {
         const data = await leaveModel.find();
-        res.render("viewLeaveRequest", { data });
+        const user = req.session.username;
+        res.render("viewLeaveRequest", { data, user });
     } catch (error) {
         throw error;
     }
-
 }
 
 exports.viewLeaveDatatable = async (req, res) => {
@@ -21,5 +21,5 @@ exports.viewLeaveDatatable = async (req, res) => {
         }
     } catch (error) {
         throw error
-    }
-}
+    };
+};

@@ -2,8 +2,9 @@ const { roleModel } = require("../../models");
 
 exports.getRoleList = async (req, res) => {
     try {
+        const user = req.session.username;
         const data = await roleModel.find({ isActive: true }).select({ _id: 1, role_name: 1 });
-        res.render("role", { data });
+        res.render("role", { data, user });
     } catch (error) {
         throw error;
     }

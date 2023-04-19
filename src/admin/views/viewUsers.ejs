@@ -124,7 +124,7 @@
                                                 </div>
                                             </div>
                                             <table class="datatables-basic table dataTable no-footer dtr-column"
-                                                id="DataTables_Table_0" role="grid"
+                                                id="usersdataTables" role="grid"
                                                 aria-describedby="DataTables_Table_0_info" style="width: 1036px;">
                                                 <thead>
                                                     <tr role="row">
@@ -171,6 +171,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
                                                     <% data.forEach(user => {%>
                                                     <tr class="odd">
                                                         <td valign="top"></td>
@@ -181,13 +182,13 @@
                                                         <td valign="top" colspan="1" >
                                                         <%=user.email %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.dob; %></td>
+                                                       <%=user.dob ? user.dob.toLocaleDateString() : user.dob %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.status %></td>
                                                         <td valign="top" colspan="1" >
                                                         <%=user.jobType %></td>
                                                         <td valign="top" colspan="1" >
-                                                        <%=user.joiningDate; %></td>
+                                                            <%=user.joiningDate ? user.joiningDate.toLocaleDateString(): user.joiningDate %></td>
                                                     </tr>
                                                     <% }) %>
                                                 </tbody>
@@ -252,20 +253,26 @@
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-icon-default-post">Phone</label>
-                                                <input type="number" id="basic-icon-default-post" name="Phone"
+                                                <input type="number" id="basic-icon-default-post" name="phone"
                                                     class="form-control dt-post" placeholder="Enter Phone No."
                                                     aria-label="Web Developer" got >
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-icon-default-post">Date Of
                                                     Birth</label>
-                                                <input type="date" id="basic-icon-default-post" name="date_Of_Birth"
+                                                <input type="date" id="basic-icon-default-post" name="dob"
                                                     class="form-control dt-post" placeholder="Web Developer"
                                                     aria-label="Web Developer" got >
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-icon-default-post">Status</label>
                                                 <input type="text" id="basic-icon-default-post" name="status"
+                                                    class="form-control dt-post" placeholder="Web Developer"
+                                                    aria-label="Web Developer" got >
+                                            </div>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-icon-default-post">Department</label>
+                                                <input type="text" id="basic-icon-default-post" name="dept"
                                                     class="form-control dt-post" placeholder="Web Developer"
                                                     aria-label="Web Developer" got >
                                             </div>
@@ -278,7 +285,7 @@
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-icon-default-date">Joining
                                                     Date</label>
-                                                <input type="date" name="joining_Date" class="form-control"
+                                                <input type="date" name="joiningDate" class="form-control"
                                                     id="basic-icon-default-date" got >
                                             </div>
                                             <button type="submit"
@@ -307,6 +314,12 @@
                 <!-- BEGIN: Vendor JS-->
                 <%-include("./partials/scripts") %>
 
+                <script>
+                       $(document).ready(function(){
+                          var dataTable = $('#usersdataTables').DataTable({
+                                });
+                            });
+                </script>
 </body>
 <!-- END: Body-->
 

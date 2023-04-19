@@ -3,17 +3,22 @@ const { userModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
+   try {
     if (req.session.username) {
         res.redirect("/index");
     } else {
         res.render("login");
     }
+   } catch (error) {
+    throw error;
+   }
+    
 }
 
 exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const data = await userModel.findOne({ email })
+        const data = await userModel.findOne({ email });
         if (!data) {
             res.redirect("/");
         } else {
@@ -32,11 +37,16 @@ exports.loginPost = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
-    if (req.session.username) {
-        res.redirect("/index");
-    } else {
-        res.render("register");
+    try {
+        if (req.session.username) {
+            res.redirect("/index");
+        } else {
+            res.render("register");
+        }    
+    } catch (error) {
+        throw error;
     }
+    
 }
 
 exports.registerPost = async (req, res) => {
@@ -56,27 +66,29 @@ exports.registerPost = async (req, res) => {
         }
     } catch (error) {
         console.log(error);
-    }
+    };
 
 }
 
 exports.index = (req, res) => {
     try {
         const user = req.session.username;
-        if (user) {
-            res.render("indexDashbord");
-        } else {
-            res.redirect("/");
-        }
+        if (user)res.render("indexDashbord",{user});
+        else res.redirect("/");
     } catch (error) {
         throw error;
     }
 }
 
 exports.viewUsers = async (req, res) => {
-    const data = await userModel.find();
-    res.render("viewUsers", { data });
-}
+    try {
+        const user = req.session.username;
+        const data = await userModel.find();
+        res.render("viewUsers", {user, data });
+    } catch (error) {
+        throw error;  
+    }
+   }
 
 exports.registerUser = async (req, res) => {
     try {
@@ -88,12 +100,13 @@ exports.registerUser = async (req, res) => {
                 name: req.body.name,
                 type: req.body.type,
                 email: req.body.email,
-                Phone: req.body.phone,
-                date_Of_Birth: new Date(req.body.date_Of_Birth),
+                phone: req.body.phone,
+                dob: new Date(req.body.dob),
                 status: req.body.status,
+                dept: req.body.dept,
                 password: hashed,
                 jobType: req.body.jobType,
-                joining_Date: new Date(req.body.joining_Date)
+                joiningDate: new Date(req.body.joiningDate)
             });
             if (data) {
                 const subject = `Your Loggin Credentials are:-`;
