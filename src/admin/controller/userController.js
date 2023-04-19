@@ -13,7 +13,7 @@ exports.login = async (req, res) => {
 exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const data = await userModel.findOne({ email })
+        const data = await userModel.findOne({ email });
         if (!data) {
             res.redirect("/");
         } else {
@@ -64,7 +64,7 @@ exports.index = (req, res) => {
     try {
         const user = req.session.username;
         if (user) {
-            res.render("indexDashbord");
+            res.render("indexDashbord",{user});
         } else {
             res.redirect("/");
         }
@@ -74,8 +74,9 @@ exports.index = (req, res) => {
 }
 
 exports.viewUsers = async (req, res) => {
+    const user = req.session.username;
     const data = await userModel.find();
-    res.render("viewUsers", { data });
+    res.render("viewUsers", { data,user});
 }
 
 exports.registerUser = async (req, res) => {
