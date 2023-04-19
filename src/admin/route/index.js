@@ -1,4 +1,4 @@
-const {controller} = require("../controller/")
+const {controller} = require("../controller/");
 
 module.exports = (app) => {
     app.use(require("./usersRoutes"))
