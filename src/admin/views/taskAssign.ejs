@@ -45,7 +45,7 @@
                             </div>
                          
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="taskDatatable" class="table">
                                     <thead>
                                         <tr>
                                             <th>Task</th>
@@ -150,7 +150,13 @@
 
     <!-- BEGIN: Vendor JS-->
     <%-include("./partials/scripts") %>
-  
+    <script>
+        $(document).ready(function(){
+           var dataTable = $('#taskDatatable').DataTable({
+                 });
+             });
+ </script>
+
     <script>
       $('#start').datepicker({
     onSelect: function(dateText, inst){
