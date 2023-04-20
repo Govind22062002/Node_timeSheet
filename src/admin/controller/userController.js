@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { userModel } = require("../../models");
+const { userModel, leaveManagementModel, statusManagementModel, emailModel, roleModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
@@ -19,6 +19,7 @@ exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
         const data = await userModel.findOne({ email });
+        
         if (!data) {
             res.redirect("/");
         } else {
@@ -26,7 +27,6 @@ exports.loginPost = async (req, res) => {
             if (isMatch) {
                 req.session.username = data;
                 res.redirect("/index");
-
             } else {
                 res.redirect("/");
             }
@@ -70,10 +70,14 @@ exports.registerPost = async (req, res) => {
 
 }
 
-exports.index = (req, res) => {
+exports.index = async (req, res) => {
     try {
         const user = req.session.username;
-        if (user)res.render("indexDashbord",{user});
+        const userCount = await userModel.find().count();
+        const leaveCount = await leaveManagementModel.find({action:'approved'}).count();
+        const projectCount = await statusManagementModel.find().count();
+        const emailCount = await emailModel.find().count();
+        if (user)res.render("indexDashbord",{user, userCount, leaveCount, projectCount, emailCount});
         else res.redirect("/");
     } catch (error) {
         throw error;
@@ -83,8 +87,35 @@ exports.index = (req, res) => {
 exports.viewUsers = async (req, res) => {
     try {
         const user = req.session.username;
-        const data = await userModel.find();
-        res.render("viewUsers", {user, data });
+        const role = await roleModel.find();
+        const data = await userModel.aggregate([
+            {
+              '$lookup': {
+                'from': 'roles', 
+                'localField': 'role', 
+                'foreignField': '_id', 
+                'as': 'result'
+              }
+            }, {
+              '$unwind': {
+                'path': '$result'
+              }
+            }, {
+              '$project': {
+                'name': 1, 
+                'role': '$result.role_name', 
+                'password': 1, 
+                'dept': 1, 
+                'email': 1, 
+                'status': 1, 
+                'phone': 1, 
+                'dob': 1, 
+                'jobType': 1, 
+                'joiningDate': 1
+              }
+            }
+          ]);
+        res.render("viewUsers", {user, role ,data });
     } catch (error) {
         throw error;  
     }
@@ -95,10 +126,10 @@ exports.registerUser = async (req, res) => {
         const userData = req.session.username;
         const randomString1 = Math.random().toString(36).slice(2, 10);
         const hashed = await bcrypt.hash(randomString1, 10);
-        if (userData.role && userData.role == 'ADMIN') {
+        // if (userData.role && userData.role == 'ADMIN') {
             const data = await userModel.create({
                 name: req.body.name,
-                type: req.body.type,
+                role : req.body.role,
                 email: req.body.email,
                 phone: req.body.phone,
                 dob: new Date(req.body.dob),
@@ -112,7 +143,7 @@ exports.registerUser = async (req, res) => {
                 const subject = `Your Loggin Credentials are:-`;
                 const body = `email:-${req.body.email},password:${randomString1}`;
                 sendMail(req, subject, body);
-            }
+            // }
             res.redirect("back");
         } else res.redirect("back");
         
