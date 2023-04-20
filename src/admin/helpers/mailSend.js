@@ -24,6 +24,7 @@ exports.sendMail = async (req, subject, body) => {
                 console.log('Email sent successfully');
             }
         });
+        
         return;
     } catch (error) {
         throw error;
