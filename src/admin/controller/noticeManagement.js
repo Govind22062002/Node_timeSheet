@@ -2,8 +2,9 @@ const { noticeModel } = require("../../models");
 
 exports.getnoticeList = async (req, res) => {
     try {
+        const user = req.session.username;
         const data = await noticeModel.find({ isActive: true }).select({ _id: 1, notice_name: 1 });
-        res.render("noticeBoard", { data });
+        res.render("noticeBoard", {user , data });
     } catch (error) {
         throw error;
     }
