@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema({
         type: String,
     },
     role:{
-        type: String,
-        enum: ['USER', 'ADMIN']
+        type: mongoose.Types.ObjectId,
     },
     password:{
         type:String

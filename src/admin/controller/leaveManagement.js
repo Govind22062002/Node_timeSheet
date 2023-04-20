@@ -8,7 +8,6 @@ exports.viewLeaveRequest = async (req, res) => {
     } catch (error) {
         throw error;
     }
-
 }
 
 exports.viewLeaveDatatable = async (req, res) => {
@@ -23,5 +22,5 @@ exports.viewLeaveDatatable = async (req, res) => {
         }
     } catch (error) {
         throw error
-    }
-}
+    };
+};

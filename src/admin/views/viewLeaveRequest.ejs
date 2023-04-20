@@ -151,25 +151,33 @@
                                                                 <%=data[i].leaveType %>
                                                             </th>
                                                             <th>
-                                                                <%=data[i].from.toLocaleDateString(); %>
+                                                                <%=data[i].from ? data[i].from.toLocaleDateString() : data[i].from %>
                                                             </th>
                                                             <th>
-                                                                <%=data[i].to.toLocaleDateString(); %>
+                                                                <%=data[i].to ? data[i].to.toLocaleDateString() : data[i].to %>
                                                             </th>
                                                             <th>
                                                                 <%=data[i].reason %>
                                                             </th>
                                                             <th>
                                                                 <div>
-                                                                    <button onclick="approved('<%=data[i]._id %>')"
-                                                                        class="btn btn-primary">Approved</button>
-                                                                    <button onclick="denied('<%=data[i]._id %>')"
-                                                                        class="btn btn-danger">Denied</button>
+                                                                  <% if(data[i].action == "approved" ){%>
+                                                                    <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
+                                                                        class="btn btn-primary" disabled>Approved</button>
+                                                                    <% }else if(data[i].action == "denied"){ %>
+                                                                        <button onclick="denied('<%=data[i]._id %>')"
+                                                                            class="btn btn-danger <%=data[i]._id %>" disabled>Denied</button>
+                                                                        <% }else{ %>
+                                                                            <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
+                                                                                class="btn btn-primary">Approved</button>
+                                                                            <button onclick="denied('<%=data[i]._id %>')"
+                                                                                class="btn btn-danger <%=data[i]._id %>">Denied</button>
+                                                                            <%}%>
+                                                                   
                                                                 </div>
                                                             </th>
                                                         </tr>
                                                         <%}}%>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -209,8 +217,6 @@
 </script>
 <script>
     function approved(id) {
-        console.log(id)
-        console.log("approved function")
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
@@ -219,10 +225,10 @@
                 console.log(result);
             }
         })
+       $(`.${id}`).hide()
+       $(`#${id}`).attr("disabled", true)
     }
     function denied(id) {
-        console.log(id)
-        console.log("denied function")
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
@@ -231,6 +237,8 @@
                 console.log(result);
             }
         })
+        $(`#${id}`).hide()
+       $(`.${id}`).attr("disabled", true)
     }
 
 </script>

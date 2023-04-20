@@ -1,8 +1,8 @@
 
 const express = require("express")
 const router = express.Router()
-const {loginCtrlApi} = require("../controllerApi/indexControllerApi")
+const {usersCtrlApi} = require("../controllerApi/indexControllerApi")
 
-router.post("/loginPost" , loginCtrlApi.loginPostApi)
-router.post("/registerPost", loginCtrlApi.registerPostApi)
+router.post("/loginPost" , )
+router.post("/registerPost", usersCtrlApi.usersPostCtrl)
 module.exports = router ;
