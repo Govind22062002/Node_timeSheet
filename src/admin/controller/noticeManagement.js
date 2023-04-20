@@ -1,9 +1,14 @@
-const { noticeModel } = require("../../models");
+const { noticeModel, userModel } = require("../../models");
+const moment = require("moment");
+const nodemailer = require('nodemailer');
 
 exports.getnoticeList = async (req, res) => {
     try {
-        const data = await noticeModel.find({ isActive: true }).select({ _id: 1, notice_name: 1 });
-        res.render("noticeBoard", { data });
+        const users = await userModel.find().select({ email: 1 });
+        console.log(users, "::::::");
+        const user = req.session.username;
+        const data = await noticeModel.find({ isActive: true }).select({ _id: 1, title: 1, notice: 1, createdAt: 1 });
+        res.render("noticeBoard", { data, user, moment: moment });
     } catch (error) {
         throw error;
     }
@@ -12,8 +17,14 @@ exports.getnoticeList = async (req, res) => {
 exports.noticeCreate = async (req, res) => {
     try {
         const data = await noticeModel.create({
-            notice_name: req.body.notice_name
+            title: req.body.title,
+            notice: req.body.notice
         });
+        if (data) {
+            const users = await userModel.find().select({ email: 1 });
+            console.log(users, "::::::");
+            req.flash('success', 'Notice sent successfully');
+        } else req.flash('error', 'Something went wrong');
         res.redirect("back");
     } catch (error) {
         throw error;
