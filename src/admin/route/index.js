@@ -10,4 +10,5 @@ module.exports = (app) => {
     app.use(require("./leaveManagement"));
     app.use(require("./statusManagement"));
     app.use(require("./roleManagement"));
+    app.use(require("./departmentRoute"));
 }
