@@ -24,7 +24,7 @@ exports.roleCreate = async (req, res) => {
 exports.roleUpdate = async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await roleModel.updateOne({ role_id: id }, {
+        const data = await roleModel.updateOne({ _id: id }, {
             role_name: req.body.role_name,
         });
         res.redirect("back");
@@ -36,9 +36,7 @@ exports.roleUpdate = async (req, res) => {
 exports.roleDelete = async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await roleModel.deleteOne({ role_id: id }, {
-            role_name: req.body.role_name,
-        });
+        const data = await roleModel.deleteOne({ _id: id });
         res.redirect("back");
     } catch (error) {
         throw error;

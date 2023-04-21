@@ -4,6 +4,7 @@ exports.emailModel = require("./emailModel");
 exports.publicHolidayModel = require("./publicHoliday");
 exports.statusManagementModel = require("./statusManagement");
 exports.taskAssignModel = require("./taskAssign");
+exports.clientAssignModel = require("./clientAssign");
 exports.roleModel = require("./role");
 exports.noticeModel = require("./noticeBoard");
 exports.departmentModel = require("./departmentModel");
