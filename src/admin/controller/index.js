@@ -8,4 +8,5 @@ exports.leaveRequestCtrl = require("./leaveManagement");
 exports.statusManagementCtrl = require("./statusManagement");
 exports.rolesCtrl = require("./rolesManagement");
 exports.noticeBoardCtrl = require("./noticeManagement");
+exports.departmentController = require("./departmentController");
 

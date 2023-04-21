@@ -7,3 +7,4 @@ exports.taskAssignModel = require("./taskAssign");
 exports.clientAssignModel = require("./clientAssign");
 exports.roleModel = require("./role");
 exports.noticeModel = require("./noticeBoard");
+exports.departmentModel = require("./departmentModel");
