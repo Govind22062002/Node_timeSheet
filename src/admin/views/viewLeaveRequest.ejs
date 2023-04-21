@@ -162,16 +162,18 @@
                                                             <th>
                                                                 <div>
                                                                   <% if(data[i].action == "approved" ){%>
-                                                                    <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
-                                                                        class="btn btn-primary" disabled>Approved</button>
-                                                                    <% }else if(data[i].action == "denied"){ %>
-                                                                        <button onclick="denied('<%=data[i]._id %>')"
-                                                                            class="btn btn-danger <%=data[i]._id %>" disabled>Denied</button>
+                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>')"
+                                                                        class="btn btn hide-arrow " aria-disabled="true">
+                                                                        <i class="fa fa-check"></i></a>
+                                                                 <% }else if(data[i].action == "denied"){ %>
+                                                                        <a type="button" onclick="denied('<%=data[i]._id %>')"
+                                                                        class="btn btn hide-arrow <%=data[i]._id %>" aria-disabled="true">
+                                                                        <i class="fa fa-times"></i></a>
                                                                         <% }else{ %>
-                                                                            <button id="<%=data[i]._id %>" onclick="approved('<%=data[i]._id %>')"
-                                                                                class="btn btn-primary">Approved</button>
-                                                                            <button onclick="denied('<%=data[i]._id %>')"
-                                                                                class="btn btn-danger <%=data[i]._id %>">Denied</button>
+                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>')"
+                                                                        class="hide-arrow"><i class="fa fa-check"></i></a>
+                                                                        <a type="button" onclick="denied('<%=data[i]._id %>')"
+                                                                            class="btn btn hide-arrow <%=data[i]._id %>"><i class="fa fa-times"></i></a>
                                                                             <%}%>
                                                                    
                                                                 </div>
