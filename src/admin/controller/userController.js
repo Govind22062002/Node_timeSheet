@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { userModel, leaveManagementModel, statusManagementModel, emailModel, roleModel } = require("../../models");
+const { userModel, leaveManagementModel, statusManagementModel, emailModel, roleModel, departmentModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
@@ -67,7 +67,6 @@ exports.registerPost = async (req, res) => {
     } catch (error) {
         console.log(error);
     };
-
 }
 
 exports.index = async (req, res) => {
@@ -88,6 +87,7 @@ exports.viewUsers = async (req, res) => {
     try {
         const user = req.session.username;
         const role = await roleModel.find();
+        const department = await departmentModel.find({isActive:true});
         const data = await userModel.aggregate([
             {
               '$lookup': {
@@ -115,7 +115,7 @@ exports.viewUsers = async (req, res) => {
               }
             }
           ]);
-        res.render("viewUsers", {user, role ,data });
+        res.render("viewUsers", {user, role ,data, department });
     } catch (error) {
         throw error;  
     }

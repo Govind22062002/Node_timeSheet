@@ -231,10 +231,13 @@
                                                     aria-label="Web Developer" got >
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-icon-default-post">Department</label>
-                                                <input type="text" id="basic-icon-default-post" name="dept"
-                                                    class="form-control dt-post" placeholder="Web Developer"
-                                                    aria-label="Web Developer" got >
+                                                <label class="form-label" for="basicSelect">Role </label>
+                                                <select class="form-select" name="dept" id="basicSelect" required>
+                                                    <option value="">Departments</option>
+                                                    <% department.forEach(data => { %>
+                                                    <option value="<%=data._id %>"><%=data.title %></option>
+                                                    <% }) %>
+                                                </select>
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-icon-default-post">Job Type</label>
