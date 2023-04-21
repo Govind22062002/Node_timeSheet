@@ -46,9 +46,7 @@ exports.noticeUpdate = async (req, res) => {
 exports.noticeDelete = async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await noticeModel.deleteOne({ notice_id: id }, {
-            notice_name: req.body.notice_name,
-        });
+        const data = await noticeModel.deleteOne({ notice_id: id });
         res.redirect("back");
     } catch (error) {
         throw error;
