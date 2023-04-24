@@ -1,6 +1,6 @@
 const { noticeModel, userModel } = require("../../models");
 const moment = require("moment");
-const nodemailer = require('nodemailer');
+const { sendMail } = require('../helpers/mailSend');
 
 exports.getnoticeList = async (req, res) => {
     try {
