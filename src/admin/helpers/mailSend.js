@@ -11,7 +11,7 @@ exports.sendMail = async (req, subject, body) => {
         });
         let mailDetails = {
             from: 'timesheetracker7@gmail.com',
-            to: req.body.To,
+            to: req.body?.To || req,
             subject: subject,
             text: body
         };
