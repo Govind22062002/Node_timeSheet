@@ -162,11 +162,11 @@
                                                             <th>
                                                                 <div>
                                                                   <% if(data[i].action == "approved" ){%>
-                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>')"
+                                                                        <a type="button" id="<%=data[i]._id %>" 
                                                                         class="btn bg-light-success hide-arrow " aria-disabled="true">
                                                                         <i class="fa fa-check"></i></a>
                                                                  <% }else if(data[i].action == "denied"){ %>
-                                                                        <a type="button" onclick="denied('<%=data[i]._id %>')"
+                                                                        <a type="button" 
                                                                         class="btn bg-light-danger hide-arrow <%=data[i]._id %>" aria-disabled="true">
                                                                         <i class="fa fa-times"></i></a>
                                                                         <% }else{ %>

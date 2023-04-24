@@ -46,7 +46,6 @@ exports.viewLeaveDatatable = async (req, res) => {
             if (data) {
                 const subject = `Your Leave Request are:-`;
                 const body = `email:-${req.query.email} leave are ${req.query.message}`; 
-                
                 sendMail(req.query.email, subject, body);
             res.send(data);
         }  

@@ -5,7 +5,6 @@ const nodemailer = require('nodemailer');
 exports.getnoticeList = async (req, res) => {
     try {
         const users = await userModel.find().select({ email: 1 });
-        console.log(users, "::::::");
         const user = req.session.username;
         const data = await noticeModel.find({ isActive: true }).select({ _id: 1, title: 1, notice: 1, createdAt: 1 });
         res.render("noticeBoard", { data, user, moment: moment });
@@ -22,7 +21,6 @@ exports.noticeCreate = async (req, res) => {
         });
         if (data) {
             const users = await userModel.find().select({ email: 1 });
-            console.log(users, "::::::");
             req.flash('success', 'Notice sent successfully');
         } else req.flash('error', 'Something went wrong');
         res.redirect("back");
