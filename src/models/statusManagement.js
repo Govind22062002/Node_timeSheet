@@ -5,8 +5,8 @@ const statusManagementSchema = new mongoose.Schema({
     employee_ID : {
         type: mongoose.Types.ObjectId,
     },
-    project_ID : {
-        type: String,
+    client_ID : {
+        type: mongoose.Types.ObjectId,
     },
     work_Type : {
         type: String,

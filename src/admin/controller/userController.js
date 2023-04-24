@@ -4,11 +4,8 @@ const { sendMail } = require('../helpers/mailSend');
 
 exports.login = async (req, res) => {
    try {
-    if (req.session.username) {
-        res.redirect("/index");
-    } else {
-        res.render("login");
-    }
+    if (req.session.username)res.redirect("/index");
+         else res.render("login");
    } catch (error) {
     throw error;
    }
@@ -19,7 +16,6 @@ exports.loginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
         const data = await userModel.findOne({ email });
-        
         if (!data) {
             res.redirect("/");
         } else {
@@ -38,15 +34,11 @@ exports.loginPost = async (req, res) => {
 
 exports.register = async (req, res) => {
     try {
-        if (req.session.username) {
-            res.redirect("/index");
-        } else {
-            res.render("register");
-        }    
+        if (req.session.username) res.redirect("/index");
+         else res.render("register");
     } catch (error) {
         throw error;
     }
-    
 }
 
 exports.registerPost = async (req, res) => {
