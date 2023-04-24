@@ -145,7 +145,7 @@
                                                     <%for(let i=0 ; i< data.length ; i++){ %>
                                                         <tr>
                                                             <th>
-                                                                <%=data[i].employee_Id %>
+                                                                <%=data[i].name %>
                                                             </th>
                                                             <th>
                                                                 <%=data[i].leaveType %>
@@ -162,18 +162,18 @@
                                                             <th>
                                                                 <div>
                                                                   <% if(data[i].action == "approved" ){%>
-                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>')"
-                                                                        class="btn btn hide-arrow " aria-disabled="true">
+                                                                        <a type="button" id="<%=data[i]._id %>" 
+                                                                        class="btn bg-light-success hide-arrow " aria-disabled="true">
                                                                         <i class="fa fa-check"></i></a>
                                                                  <% }else if(data[i].action == "denied"){ %>
-                                                                        <a type="button" onclick="denied('<%=data[i]._id %>')"
-                                                                        class="btn btn hide-arrow <%=data[i]._id %>" aria-disabled="true">
+                                                                        <a type="button" 
+                                                                        class="btn bg-light-danger hide-arrow <%=data[i]._id %>" aria-disabled="true">
                                                                         <i class="fa fa-times"></i></a>
                                                                         <% }else{ %>
-                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>')"
-                                                                        class="hide-arrow"><i class="fa fa-check"></i></a>
-                                                                        <a type="button" onclick="denied('<%=data[i]._id %>')"
-                                                                            class="btn btn hide-arrow <%=data[i]._id %>"><i class="fa fa-times"></i></a>
+                                                                        <a type="button" id="<%=data[i]._id %>"  onclick="approved('<%=data[i]._id %>','<%=data[i].email %>')"
+                                                                        class="btn bg-light-success hide-arrow"><i class="fa fa-check"></i></a>
+                                                                        <a type="button" onclick="denied('<%=data[i]._id %>','<%=data[i].email %>')"
+                                                                            class="btn bg-light-danger hide-arrow <%=data[i]._id %>"><i class="fa fa-times"></i></a>
                                                                             <%}%>
                                                                    
                                                                 </div>
@@ -218,11 +218,11 @@
     
 </script>
 <script>
-    function approved(id) {
+    function approved(id,email) {
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
-            data: { id: id, message: "approved" },
+            data: { id: id, email : email, message: "approved" },
             success: function (result) {
                 console.log(result);
             }
@@ -230,11 +230,11 @@
        $(`.${id}`).hide()
        $(`#${id}`).attr("disabled", true)
     }
-    function denied(id) {
+    function denied(id,email) {
         $.ajax({
             url: "/view-leave-datatable",
             type: "GET",
-            data: { id: id, message: "denied" },
+            data: { id: id, email : email, message: "denied" },
             success: function (result) {
                 console.log(result);
             }
