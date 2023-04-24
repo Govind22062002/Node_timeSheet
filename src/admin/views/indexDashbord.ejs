@@ -3,7 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
-    
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
@@ -49,7 +49,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
-    
+
 </head>
 <!-- END: Head-->
 
@@ -75,132 +75,153 @@
                     <div class="content-header row">
                     </div>
                     <div class="content-body">
-                        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-                        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
-                        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
-                        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
-                        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+                        <link rel="stylesheet" type="text/css"
+                            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                        <link rel="stylesheet" type="text/css"
+                            href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+                        <link rel="stylesheet" type="text/css"
+                            href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+                        <link rel="stylesheet" type="text/css"
+                            href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+                        <link rel="stylesheet" type="text/css"
+                            href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
                         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-                        
+
                         <div class="grey-bg container-fluid mt-5">
                             <section id="minimal-statistics">
                                 <div class="row">
-                                <div class="col-xl-3 col-sm-6 col-12"> 
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <a href="/email_message">
-                                            <div class="media d-flex">
-                                                <div class="align-self-center">
-                                                <i class="icon-pencil primary font-large-2 float-left"></i>
-                                                </div>
-                                                <div class="media-body text-right">
-                                                <h3><%=emailCount%></h3>
-                                                <span>Emails</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-sm-6 col-12">
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <a href="/view-leave">
-                                            <div class="media d-flex">
-                                                <div class="align-self-center">
-                                                <i class="icon-speech warning font-large-2 float-left"></i>
-                                                </div>
-                                                <div class="media-body text-right">
-                                                <h3><%=leaveCount%></h3>
-                                                <span>Leave Requests</span>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <a href="/email_message">
+                                                        <div class="media d-flex">
+                                                            <div class="align-self-center">
+                                                                <i
+                                                                    class="icon-pencil primary font-large-2 float-left"></i>
+                                                            </div>
+                                                            <div class="media-body text-right">
+                                                                <h3>
+                                                                    <%=emailCount%>
+                                                                </h3>
+                                                                <span>Emails</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
                                                 </div>
                                             </div>
-                                        </a>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-sm-6 col-12">
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <a href="/view-users">
-                                            <div class="media d-flex">
-                                                <div class="align-self-center">
-                                                <i class="icon-user success font-large-2 float-right"></i>
-                                                </div>
-                                                <div class="media-body text-right">
-                                                <h3><%=userCount%></h3>
-                                                <span>Total Employee</span>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <a href="/view-leave">
+                                                        <div class="media d-flex">
+                                                            <div class="align-self-center">
+                                                                <i
+                                                                    class="icon-speech warning font-large-2 float-left"></i>
+                                                            </div>
+                                                            <div class="media-body text-right">
+                                                                <h3>
+                                                                    <%=leaveCount%>
+                                                                </h3>
+                                                                <span>Leave Requests</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </a>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-sm-6 col-12">
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <a href="/view-leave">
-                                            <div class="media d-flex">
-                                                <div class="align-self-center">
-                                                <i class="icon-user success font-large-2 float-right"></i>
-                                                </div>
-                                                <div class="media-body text-right">
-                                                <h3><%=projectCount%></h3>
-                                                <span>Total Clients</span>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <a href="/view-users">
+                                                        <div class="media d-flex">
+                                                            <div class="align-self-center">
+                                                                <i
+                                                                    class="icon-user success font-large-2 float-right"></i>
+                                                            </div>
+                                                            <div class="media-body text-right">
+                                                                <h3>
+                                                                    <%=userCount%>
+                                                                </h3>
+                                                                <span>Total Employee</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </a>
                                         </div>
                                     </div>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <a href="/view-leave">
+                                                        <div class="media d-flex">
+                                                            <div class="align-self-center">
+                                                                <i
+                                                                    class="icon-user success font-large-2 float-right"></i>
+                                                            </div>
+                                                            <div class="media-body text-right">
+                                                                <h3>
+                                                                    <%=projectCount%>
+                                                                </h3>
+                                                                <span>Total Clients</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                            
+
                                 <div class="row">
-                                <div class="col-xl-3 col-sm-6 col-12">
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <div class="media d-flex">
-                                            <div class="media-body text-left">
-                                            <h3 class="danger">278</h3>
-                                            <span>Projects Status</span>
-                                            </div>
-                                            <div class="align-self-center">
-                                            <i class="icon-rocket danger font-large-2 float-right"></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-xl-3 col-sm-6 col-12">
-                                    <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                        <div class="media d-flex">
-                                            <div class="media-body text-left">
-                                            <h3 class="success">156</h3>
-                                            <span>New Clients</span>
-                                            </div>
-                                            <div class="align-self-center">
-                                            <i class="icon-user success font-large-2 float-right"></i>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <div class="media d-flex">
+                                                        <div class="media-body text-left">
+                                                            <h3 class="danger">278</h3>
+                                                            <span>Projects Status</span>
+                                                        </div>
+                                                        <div class="align-self-center">
+                                                            <i class="icon-rocket danger font-large-2 float-right"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-xl-3 col-sm-6 col-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <a href="/view-leave">
+                                                        <div class="media d-flex">
+                                                            <div class="align-self-center">
+                                                                <i
+                                                                    class="icon-speech warning font-large-2 float-left"></i>
+                                                            </div>
+                                                            <div class="media-body text-right">
+                                                                <h3>
+                                                                    <%=leaveCount%>
+                                                                </h3>
+                                                                <span>Departments </span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="col-xl-3 col-sm-6 col-12">
+                                    <!-- <div class="col-xl-3 col-sm-6 col-12">
                                     <div class="card">
                                     <div class="card-content">
                                         <div class="card-body">
@@ -318,7 +339,7 @@
                                     </div>
                                     </div>
                                 </div>
-                                </div> -->
+                                </div>  -->
                             </section>
                         </div>
                     </div>

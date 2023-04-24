@@ -5,14 +5,13 @@ exports.sendMail = async (req, subject, body) => {
         let mailTransporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'niteshsharma.img@gmail.com',
-                pass: 'lozevcyhwjnidozt'
+                user: 'timesheetracker7@gmail.com',
+                pass: 'plfmolrwbemmtejo'
             }
         });
-
         let mailDetails = {
-            from: 'niteshsharma.img@gmail.com',
-            to: req.body?.email||req,
+            from: 'timesheetracker7@gmail.com',
+            to: req.body?.To || req,
             subject: subject,
             text: body
         };

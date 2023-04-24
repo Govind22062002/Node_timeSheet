@@ -3,7 +3,7 @@ const { departmentModel } = require('../../models');
 exports.viewDepartment = async (req, res) => {
     try {
         const user = req.session.username;
-        const data = await departmentModel.find({isActive:false});
+        const data = await departmentModel.find({isActive:true});
         res.render('department',{user, data});
     } catch (error) {
         console.log(error);
