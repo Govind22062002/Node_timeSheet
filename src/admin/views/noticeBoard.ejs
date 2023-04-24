@@ -51,7 +51,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>S No</th>
+                                                <th>S.No</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
                                                 <th>Date</th>
@@ -59,19 +59,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <% for(let i=0; i<data.length; i++){%>
+                                            <% for(let i=0; i< data.length; i++){%>
                                             <tr>
                                                 <td><%=i+1%></td>
                                                 <td><%=data[i].title%></td>
                                                 <td><%=data[i].notice%></td>
                                                 <td><%=moment(data[i].createdAt).format('Do MMMM, YYYY')%></td>
                                                 <td>
-                                                    <button type="button"
-                                                            class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
+                                                    <button type="button" href="#"
+                                                            class="btn bg-light-success dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
                                                             <i class="fa fa-pencil"></i>
                                                     </button>   
-                                                    <a type="button" href="/roleDelete/<%=data[i]._id%>?_METHOD=DELETE"
-                                                        class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
+                                                    <a type="button" href="/noticeDelete/<%=data[i]._id%>"
+                                                        class="btn bg-light-danger dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
