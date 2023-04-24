@@ -114,19 +114,19 @@
                                                <%if(data){ %>
                                                 <% data.forEach(client => { %>
                                                     <tr>
-                                                        <td><%=client.clientName%></td>
                                                         <td><%=client.projectName%></td>
+                                                        <td><%=client.clientName%></td>
                                                         <td><%=client.status%></td>
                                                         <td><%=client.discription%></td>
                                                         <td><%=client.start_Date ? client.start_Date.toLocaleDateString() : client.start_Date %></td>
                                                         <td><%=client.end_Date ? client.end_Date.toLocaleDateString() : client.end_Date %></td>
                                                         <td>
-                                                            <a type="button"  href="#"
-                                                                class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
+                                                            <a href="/clientUpdate?id=<%=client._id%>" class="dropdown-toggle hide-arrow" >
                                                                 <i class="fa fa-pencil"></i>
-                                                    </a>   
-                                                        <a type="button" href="/clientDelete/<%=client._id%>"
-                                                            class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light border-0">
+                                                             </a>   
+                                                        <a type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modals-slide-in" href="/clientDelete/<%=client._id%>"
+                                                            class="btn btn-sm dropdown-toggle hide-arrow">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
                                                         </td>
@@ -147,49 +147,49 @@
             <div class="sidenav-overlay"></div>
             <div class="drag-target"></div>
     <!-- Modal to add new record -->
-    <div class="modal modal-slide-in fade" id="modals-slide-in" style="display: none;"
-    aria-hidden="true">
-    <div class="modal-dialog sidebar-sm">
-        <form class="add-new-record modal-content pt-0" action="/clientAssignPost" method="post" >
-            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close">×</button>
-            <div class="modal-header mb-1">
-                <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
-            </div>
-            <div class="modal-body flex-grow-1">
-                <div class="mb-1">
-                    <label class="form-label" for="basic-icon-default-fullname">Client Name</label>
-                    <input type="text" class="form-control dt-full-name" name="clientName" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
+        <div class="modal modal-slide-in fade" id="modals-slide-in" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog sidebar-sm">
+            <form class="add-new-record modal-content pt-0" action="/clientAssignPost" method="post" >
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close">×</button>
+                <div class="modal-header mb-1">
+                    <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
                 </div>
-                <div class="mb-1">
-                    <label class="form-label" for="basic-icon-default-fullname">Project Name</label>
-                    <input type="text" class="form-control dt-full-name" name="projectName" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
+                <div class="modal-body flex-grow-1">
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">Client Name</label>
+                        <input type="text" class="form-control dt-full-name" name="clientName" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">Project Name</label>
+                        <input type="text" class="form-control dt-full-name" name="projectName" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">Status</label>
+                        <input type="text" class="form-control dt-full-name" name="status" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">Start Date</label>
+                        <input type="text" class="form-control dt-full-name" name="start_Date" id="start" placeholder="" aria-label="Module Name" required>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="basic-icon-default-fullname">End Date</label>
+                        <input type="text" class="form-control dt-full-name" name="end_Date" id="end" placeholder="" aria-label="Module Name">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="basic-icon-default-salary">Description</label>
+                        <textarea class="form-control" name="discription" id="exampleFormControlTextarea78d" rows="3" required>
+                        </textarea>
+                    </div>
+                    <button type="submit"
+                        class="btn btn-primary data-submit me-1 waves-effect waves-float waves-light">Submit</button>
+                    <button type="reset" class="btn btn-outline-secondary waves-effect"
+                        data-bs-dismiss="modal">Cancel</button>
                 </div>
-                <div class="mb-1">
-                    <label class="form-label" for="basic-icon-default-fullname">Status</label>
-                    <input type="text" class="form-control dt-full-name" name="status" id="basic-icon-default-fullname" placeholder="" aria-label="Module Name" required>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label" for="basic-icon-default-fullname">Start Date</label>
-                    <input type="text" class="form-control dt-full-name" name="start_Date" id="start" placeholder="" aria-label="Module Name" required>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label" for="basic-icon-default-fullname">End Date</label>
-                    <input type="text" class="form-control dt-full-name" name="end_Date" id="end" placeholder="" aria-label="Module Name">
-                </div>
-                <div class="mb-4">
-                    <label class="form-label" for="basic-icon-default-salary">Description</label>
-                    <textarea class="form-control" name="discription" id="exampleFormControlTextarea78d" rows="3" required>
-                    </textarea>
-                </div>
-                <button type="submit"
-                    class="btn btn-primary data-submit me-1 waves-effect waves-float waves-light">Submit</button>
-                <button type="reset" class="btn btn-outline-secondary waves-effect"
-                    data-bs-dismiss="modal">Cancel</button>
-            </div>
-        </form>
-    </div>
-</div>
+            </form>
+        </div>
+         </div>
             <!-- BEGIN: Footer-->
             <%-include("./partials/footer") %>
                 <!-- END: Footer-->

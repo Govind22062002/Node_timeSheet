@@ -6,17 +6,17 @@ exports.getRoleList = async (req, res) => {
         const data = await roleModel.find({ isActive: true }).select({ _id: 1, role_name: 1 });
         res.render("role", { data, user });
     } catch (error) {
+        console.log(error);
         throw error;
     }
 }
 
 exports.roleCreate = async (req, res) => {
     try {
-        const data = await roleModel.create({
-            role_name: req.body.role_name
-        });
+        const data = await roleModel.create(req.body);
         res.redirect("back");
     } catch (error) {
+        console.log(error);
         throw error;
     }
 }
@@ -29,6 +29,7 @@ exports.roleUpdate = async (req, res) => {
         });
         res.redirect("back");
     } catch (error) {
+        console.log(error);
         throw error;
     }
 }
@@ -39,6 +40,7 @@ exports.roleDelete = async (req, res) => {
         const data = await roleModel.deleteOne({ _id: id });
         res.redirect("back");
     } catch (error) {
+        console.log(error);
         throw error;
     }
 }
