@@ -2,7 +2,30 @@ const { leaveManagementModel } = require("../../models");
 
 exports.leaveGetCtrl = async (req, res) => {
     try {
-        const data = await leaveManagementModel.find();
+        const data = await leaveManagementModel.aggregate([
+            {
+              '$lookup': {
+                'from': 'users', 
+                'localField': 'employee_Id', 
+                'foreignField': '_id', 
+                'as': 'result'
+              }
+            }, {
+              '$unwind': {
+                'path': '$result'
+              }
+            }, {
+              '$project': {
+                'name': '$result.name', 
+                'email': '$result.email', 
+                'leaveType': 1, 
+                'from': 1, 
+                'to': 1, 
+                'reason': 1, 
+                'action': 1
+              }
+            }
+          ]);
         if (data && data.length !== 0) {
             res.status(200).json({ success: true, data: data });
         } else {

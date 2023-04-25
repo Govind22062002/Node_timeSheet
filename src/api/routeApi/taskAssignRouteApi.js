@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { isAuthApi } = require("../helperApi/authenticationApi");
-const { taskAssignCtrlApi } = require("../controllerApi/indexControllerApi");
+const { taskAssignCtrlApi } = require("../controllerApi/indexController");
 
 router.get("/taskAssign", isAuthApi, taskAssignCtrlApi.taskAssignGetCtrl);
 router.post("/taskAssignPost", isAuthApi, taskAssignCtrlApi.taskAssignPostCtrl);

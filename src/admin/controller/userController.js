@@ -8,8 +8,7 @@ exports.login = async (req, res) => {
          else res.render("login");
    } catch (error) {
     throw error;
-   }
-    
+   }   
 }
 
 exports.loginPost = async (req, res) => {

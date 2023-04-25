@@ -123,11 +123,11 @@
                                         </div>
                                           <div class="mb-1 position-relative">
                                             <label for="start-date" class="form-label">Start Date</label>
-                                            <input type="text" class="form-control flatpickr-input" id="start" name="start_Date" placeholder="Start Date" required>
+                                            <input type="text" class="form-control flatpickr-input" id="start-date" name="start_Date" placeholder="Start Date" required>
                                         </div>
                                         <div class="mb-1 position-relative">
                                             <label for="end-date" class="form-label">End Date</label>
-                                            <input type="text" class="form-control flatpickr-input" id="end" name="end_Date" placeholder="End Date" required>
+                                            <input type="text" class="form-control flatpickr-input" id="end-date" name="end_Date" placeholder="End Date" required>
                                         </div>
                                         <div class="mb-1">
                                             <div class="form-check form-switch">
@@ -169,13 +169,13 @@
     <%-include("./partials/scripts") %>
 
     <script>
-        $('#start').datepicker({
+        $('#start-date').datepicker({
        onSelect: function(dateText, inst){
            $('#end').datepicker('option', 'minDate', new Date(dateText));
        },
    });
    
-   $('#end').datepicker({
+   $('#end-data').datepicker({
        onSelect: function(dateText, inst){
            $('#start').datepicker('option', 'maxDate', new Date(dateText));
        }
