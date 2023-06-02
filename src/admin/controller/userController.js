@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { userModel, leaveManagementModel, statusManagementModel, emailModel, roleModel, departmentModel } = require("../../models");
 const { sendMail } = require('../helpers/mailSend');
 
-exports.login = async (req, res) => {
+exports.login = async (req, res) => {    
    try {
     if (req.session.username)res.redirect("/index");
          else res.render("login");
@@ -16,7 +16,7 @@ exports.loginPost = async (req, res) => {
         const { email, password } = req.body;
         const data = await userModel.findOne({ email });
         if (!data) {
-            res.redirect("/");
+            res.redirect("/");  
         } else {
             const isMatch = await bcrypt.compare(password, data.password);
             if (isMatch) {
